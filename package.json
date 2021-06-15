@@ -4,12 +4,22 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch ./sass/main.scss:./public/css/style.css --style expanded",
+    "prefix": "postcss ./public/css/style.css --use autoprefixer -d ./public/css/prefixed/"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toops61/StephaneMaulave_5_15062021.git"
+  },
+  "bugs": {
+    "url": "https://github.com/toops61/essais_JS/issues"
+  },
+  "author": "Maulave Stephane",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "sass": "^1.34.1"
   }
 }
