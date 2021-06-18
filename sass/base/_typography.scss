@@ -24,3 +24,23 @@
     src: url("../fonts/fa-brands-400.eot");
     src: url("../fonts/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("../fonts/fa-brands-400.woff2") format("woff2"), url("../fonts/fa-brands-400.woff") format("woff"), url("../fonts/fa-brands-400.ttf") format("truetype"), url("../fonts/fa-brands-400.svg#fontawesome") format("svg");
 }
+
+@font-face {
+  font-family: 'raleway';
+  src: url('../fonts/Raleway-Regular.ttf') format('truetype');
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+body {
+  font-family: 'raleway', Arial, Helvetica, sans-serif;
+}
+
+h2 {
+  @include mobile-version {
+    font-size: 1.2rem;
+  }
+}

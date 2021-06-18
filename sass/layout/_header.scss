@@ -1,0 +1,36 @@
+.header {
+    width: 80%;
+    @include mobile-version {
+        width: 90%;
+    }
+    margin: 1rem auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    &__logo {
+        width: 30%;
+        @include tablette-version {
+            width: 60%;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &__panier {
+        width: 8rem;
+        height: 3rem;
+        @include mobile-version {
+            width: 6rem;
+            height: 2rem;
+        }
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        h2::before {
+            @include icon($content: "\f291", $font-size: 1.2em);
+            margin-right: .6rem;
+        }
+    }
+}

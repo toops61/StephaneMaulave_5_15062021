@@ -1,0 +1,13 @@
+body {
+    max-width: 1920px;
+    min-width: 320px;
+    margin: 0 auto;
+    padding: 0;
+    background-color: $primary-color;
+}
+
+main {
+    width: 80%;
+    border: solid green;
+    margin: 0 auto;
+}
