@@ -1,0 +1,9 @@
+.products {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    &__card {
+        @include index-cards;
+    }
+}

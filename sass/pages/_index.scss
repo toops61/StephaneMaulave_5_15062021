@@ -6,19 +6,7 @@
         align-items: center;
     }
     &__carte {
-        border-radius: 20px;
-        background-color: white;
-        width: 80%;
-        max-width: 45rem;
-        height: 12rem;
-        @include tablette-version {
-            height: 6rem;
-            width: 100%;
-        }
-        display: flex;
-        align-items: center;
-        overflow: hidden;
-        margin-top: 2rem;
+        @include index-cards;
         border: solid green;
         h2 {
             margin-left: 2rem;

@@ -35,7 +35,7 @@
     }
 }
 
-@mixin iconBrands ($content: "\f09a", $font-size: 1.4em) {
+@mixin iconBrands ($content: "\f09a", $font-size: 1.8rem) {
     content: $content;
     font-family: 'Font Awesome 5 brands';
     font-weight: 400;
@@ -44,7 +44,8 @@
     font-variant: normal;
     text-rendering: auto;
     line-height: 1;
-    margin: 1rem;
+    margin-left: 1rem;
+    margin-right: .4rem;
 }
 
 @mixin iconEmpty ($content: "\f005", $font-size: 1.4em) {
@@ -72,5 +73,22 @@
 }
 
 @mixin instagramColor {
-    background: linear-gradient(49.2deg,#f9ed32 10%,#ee2a7b 55%,#002aff);
+    background: -webkit-linear-gradient(49.2deg,#f9ed32 10%,#ee2a7b 55%,#002aff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+@mixin index-cards {
+    border-radius: 20px;
+    background-color: white;
+    width: 80%;
+    max-width: 45rem;
+    height: 12rem;
+    @media screen and (max-width:$breakpoint-ipad) {
+        height: 6rem;
+        width: 100%;
+    }
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 2rem;
 }

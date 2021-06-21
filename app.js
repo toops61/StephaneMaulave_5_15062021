@@ -14,8 +14,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('./public/images/articles', express.static(path.join(__dirname, 'articles')));
-app.use(express.static('articles'));
+app.use('/images', express.static(path.join(__dirname, 'images')));
+app.use(express.static('images'));
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
