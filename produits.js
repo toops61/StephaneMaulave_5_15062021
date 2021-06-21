@@ -6,16 +6,12 @@ fetch('http://localhost:3000/api/teddies')
             }
         })
         .then(function(value) {
-                document.getElementById("teddy-name1").textContent = value[0].name;
-                document.getElementById("teddy-description1").textContent = "couleurs disponibles : " + value[0].colors;
-                document.getElementById("teddy-name2").textContent = value[1].name;
-                document.getElementById("teddy-description2").textContent = "couleurs disponibles : " + value[1].colors;
-                document.getElementById("teddy-name3").textContent = value[2].name;
-                document.getElementById("teddy-description3").textContent = "couleurs disponibles : " + value[2].colors;
-                document.getElementById("teddy-name4").textContent = value[3].name;
-                document.getElementById("teddy-description4").textContent = "couleurs disponibles : " + value[3].colors;
-                document.getElementById("teddy-name5").textContent = value[4].name;
-                document.getElementById("teddy-description5").textContent = "couleurs disponibles : " + value[4].colors;
+            for (let i = 0; i < value.length; i++) {
+                document.getElementById("teddy-name" + i).textContent = value[i].name;
+                document.getElementById("teddy-description" + i).textContent = value[i].description;
+                document.getElementById("teddy-color" + i).textContent = "Couleurs disponibles : " + value[i].colors;
+                document.getElementById("teddy-price" + i).textContent = value[i].price*0.01 + " €";
+            }   
         })
         .catch(function(error) {
             console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);

@@ -92,3 +92,27 @@
     overflow: hidden;
     margin-top: 2rem;
 }
+
+@mixin product-cards {
+    border: solid red;
+    border-radius: 30px;
+    width: 80%;
+    max-width: 65rem;
+    height: 25rem;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin: 2rem auto;
+    @media screen and (max-width:$breakpoint-ipad) {
+        height: 14rem;
+        width: 100%;
+        flex-direction: row;
+        background-color: white;
+    }
+    & > div {
+        width: 50%;
+        margin: 2rem;
+        background-color: white;
+        border: solid green;
+    }
+}
