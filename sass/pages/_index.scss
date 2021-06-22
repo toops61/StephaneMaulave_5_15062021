@@ -1,5 +1,4 @@
 .article {
-    border: solid red;
     &__liste {
         display: flex;
         flex-direction: column;
@@ -7,7 +6,7 @@
     }
     &__carte {
         @include index-cards;
-        border: solid green;
+        @include btn-shadow;
         h2 {
             margin-left: 2rem;
             @include tablette-version {

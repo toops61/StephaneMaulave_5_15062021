@@ -10,7 +10,6 @@ body {
 main {
   width: 80%;
   margin: 0 auto;
-  border: solid green;
 }
 
 ul {
@@ -192,9 +191,6 @@ li {
   margin-right: 0.6rem;
 }
 
-.article {
-  border: solid red;
-}
 .article__liste {
   display: flex;
   flex-direction: column;
@@ -210,7 +206,7 @@ li {
   align-items: center;
   overflow: hidden;
   margin-top: 2rem;
-  border: solid green;
+  box-shadow: 2px 2px 14px black;
 }
 @media screen and (max-width: 768px) {
   .article__carte {
@@ -240,7 +236,6 @@ li {
 .main-section {
   width: 80%;
   margin: 0 auto;
-  border: solid green;
 }
 @media screen and (max-width: 768px) {
   .main-section {
@@ -255,12 +250,10 @@ li {
   width: 100%;
 }
 .products__card {
-  border: solid red;
-  border-radius: 30px;
-  width: 80%;
   max-width: 65rem;
   height: 25rem;
   display: flex;
+  justify-content: space-around;
   align-items: center;
   overflow: hidden;
   margin: 2rem auto;
@@ -277,11 +270,25 @@ li {
   width: 50%;
   margin: 2rem;
   background-color: white;
-  border: solid green;
 }
 .products__card__image {
-  width: 50%;
-  height: 25rem;
+  border-radius: 30px;
+  width: 18rem;
+  height: 18rem;
+  margin-left: 1rem;
+  box-shadow: 2px 2px 14px black;
+}
+.products__card h2 {
+  text-align: center;
+}
+.products__card div {
+  box-shadow: 2px 2px 14px black;
+}
+.products__card div p {
+  margin: 1rem;
+}
+.products__card div p:nth-child(4) {
+  text-align: right;
 }
 
 /*# sourceMappingURL=style.css.map */

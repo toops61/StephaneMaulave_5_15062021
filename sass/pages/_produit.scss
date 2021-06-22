@@ -4,7 +4,6 @@
         width: 94%;
     }
     margin: 0 auto;
-    border: solid green;
 }
 .products {
     display: flex;
@@ -14,8 +13,23 @@
     &__card {
         @include product-cards;
         &__image {
-            width: 50%;
-            height: 25rem;
+            border-radius: 30px;
+            width: 18rem;
+            height: 18rem;
+            margin-left: 1rem;
+            @include btn-shadow;
+        }
+        h2 {
+            text-align: center;
+        }
+        div {
+            @include btn-shadow;
+            p {
+                margin: 1rem;
+                &:nth-child(4){
+                    text-align: right;
+                }
+            }
         }
     }
 }
