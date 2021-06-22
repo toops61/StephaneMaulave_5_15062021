@@ -24,11 +24,25 @@
         }
         div {
             @include btn-shadow;
+            &:hover {
+                box-shadow: 14px 14px 30px;
+            }
             p {
                 margin: 1rem;
-                &:nth-child(4){
+                &:nth-child(5){
                     text-align: right;
                 }
+            }
+            ul::before {
+                margin-left: 1rem;
+                @include icon;
+            }
+            ul > li {
+                margin-left: 1rem;
+                display: none;
+            }
+            ul:hover > li {
+                display: flex;
             }
         }
     }

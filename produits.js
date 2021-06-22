@@ -9,7 +9,13 @@ fetch('http://localhost:3000/api/teddies')
             for (let i = 0; i < value.length; i++) {
                 document.getElementById("teddy-name" + i).textContent = value[i].name;
                 document.getElementById("teddy-description" + i).textContent = value[i].description;
-                document.getElementById("teddy-color" + i).textContent = "Couleurs disponibles : " + value[i].colors;
+                let colorNav = document.getElementById("teddy-color" + i);
+                let arrayColors = value[i].colors;
+                for (let ind = 0; ind < arrayColors.length; ind++) {
+                    let objectColor = document.createElement("li");
+                    objectColor.innerHTML = arrayColors[ind];
+                    colorNav.appendChild(objectColor);
+                }
                 document.getElementById("teddy-price" + i).textContent = value[i].price*0.01 + " €";
             }   
         })

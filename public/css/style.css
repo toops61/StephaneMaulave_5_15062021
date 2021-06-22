@@ -284,11 +284,33 @@ li {
 .products__card div {
   box-shadow: 2px 2px 14px black;
 }
+.products__card div:hover {
+  box-shadow: 14px 14px 30px;
+}
 .products__card div p {
   margin: 1rem;
 }
-.products__card div p:nth-child(4) {
+.products__card div p:nth-child(5) {
   text-align: right;
+}
+.products__card div ul::before {
+  margin-left: 1rem;
+  content: "";
+  font-family: "Font Awesome 5";
+  font-weight: 900;
+  font-size: 1.4em;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  color: black;
+}
+.products__card div ul > li {
+  margin-left: 1rem;
+  display: none;
+}
+.products__card div ul:hover > li {
+  display: flex;
 }
 
 /*# sourceMappingURL=style.css.map */
