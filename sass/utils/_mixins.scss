@@ -19,6 +19,10 @@
     border: solid $third-color;
 }
 
+@mixin borderFourth {
+    border: solid $fourth-color;
+}
+
 @mixin flex-column {
     display: flex;
     flex-direction: column;
@@ -108,17 +112,17 @@
 
 @mixin product-cards {
     max-width: 65rem;
-    height: 25rem;
+    width: 32rem;
+    height: 20rem;
     display: flex;
-    justify-content: space-around;
     align-items: center;
     overflow: hidden;
     margin: 2rem auto;
+    background-color: white;
+    border: solid $fourth-color;
+    border-radius: 30px;
+    @include btn-shadow;
     @media screen and (max-width:$breakpoint-ipad) {
-        width: 90%;
-        height: 20rem;
-        border-radius: 30px;
-        background-color: white;
         @include borderThird;
     }
     @media screen and (max-width:$breakpoint-mobile) {

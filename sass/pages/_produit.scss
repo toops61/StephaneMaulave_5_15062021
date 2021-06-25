@@ -1,65 +1,24 @@
-.main-section {
-    width: 80%;
-    @include tablette-version {
-        width: 100%;
-    }
-    margin: 0 auto;
-}
-.products {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
+.product {
+    @include flex-column;
+    border: solid red;
     &__card {
-        @include product-cards;
+        @include flex-column;
+        border-radius: 40px;
+        width: 90%;
+        max-width: 66rem;
+        margin-bottom: 2rem;
+        @include borderThird;
         &__image {
-            border-radius: 30px;
-            width: 16rem;
-            height: 16rem;
-            margin-left: 1rem;
+            width: 50%;
             overflow: hidden;
-            @include btn-shadow;
-            @include borderThird;
-            @include tablette-version {
-                border: none;
-                box-shadow: none;
-                border-radius: 0;
-                width: 10rem;
-                height: 10rem;
-            }
-            @include mobile-version {
-                width: 12rem;
-                height: 12rem;
-            }
+            margin: 1rem;
             img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
             }
         }
-        h2 {
-            text-align: center;
-        }
         &__description {
-            @include btn-shadow;
-            width: 50%;
-            margin: 2rem 3rem;
-            background-color: white;
-            &:hover {
-                box-shadow: 6px 6px 30px;
-                @include tablette-version {
-                    box-shadow: none;
-                }
-            }
-            p {
-                margin: 1rem;
-                &:nth-child(3){
-                    margin-bottom: 0;
-                }
-                &:nth-child(5){
-                    text-align: right;
-                }
-            }
             ul {
                 margin-top: 0;
                 &::before {
@@ -73,13 +32,6 @@
                 &:active > li {
                     display: flex;
                 }
-            }
-            @include tablette-version {
-                box-shadow: none;
-                margin: 0;
-            }
-            @include mobile-version {
-                width: 100%;
             }
         }
     }
