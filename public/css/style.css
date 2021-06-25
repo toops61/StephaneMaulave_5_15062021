@@ -55,6 +55,7 @@ body {
 
 h1 {
   text-align: center;
+  font-size: 2rem;
 }
 
 @media screen and (max-width: 400px) {
@@ -269,18 +270,23 @@ li {
 .products__card__description {
   width: 30%;
   height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   margin: 0;
-  border: solid green;
+}
+.products__card__description h2 {
+  font-size: 1.8rem;
 }
 .products__card__description p {
-  right: 2px;
+  text-align: right;
+  bottom: 1rem;
 }
 
 .product {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: solid red;
 }
 .product__card {
   display: flex;
@@ -294,13 +300,22 @@ li {
 }
 .product__card__image {
   width: 50%;
+  border: solid #bb491c;
+  box-shadow: 2px 2px 14px black;
+  border-radius: 30px;
   overflow: hidden;
-  margin: 1rem;
+  margin: 4rem auto 2rem auto;
 }
 .product__card__image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.product__card__description {
+  width: 80%;
+}
+.product__card__description p {
+  font-size: 1.5rem;
 }
 .product__card__description ul {
   margin-top: 0;

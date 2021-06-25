@@ -47,10 +47,16 @@
         &__description {
             width: 30%;
             height: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             margin: 0;
-            @include borderGreen;
+            h2 {
+                font-size: 1.8rem;
+            }
             p {
-                right: 2px;
+                text-align: right;
+                bottom: 1rem;
             }
         }
     }
