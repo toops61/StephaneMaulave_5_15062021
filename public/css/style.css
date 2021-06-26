@@ -58,10 +58,8 @@ h1 {
   font-size: 2rem;
 }
 
-@media screen and (max-width: 400px) {
-  h2 {
-    font-size: 1.2rem;
-  }
+p {
+  font-size: 1.4rem;
 }
 
 li {
@@ -243,21 +241,6 @@ li {
   border: solid #E38D02;
   border-radius: 20px;
   overflow: hidden;
-}
-@media screen and (max-width: 768px) {
-  .products__card__image {
-    border: none;
-    box-shadow: none;
-    border-radius: 0;
-    width: 10rem;
-    height: 10rem;
-  }
-}
-@media screen and (max-width: 400px) {
-  .products__card__image {
-    width: 12rem;
-    height: 12rem;
-  }
 }
 .products__card__image img {
   width: 100%;

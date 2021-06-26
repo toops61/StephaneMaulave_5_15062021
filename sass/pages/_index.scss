@@ -24,17 +24,6 @@
             @include borderThird;
             border-radius: 20px;
             overflow: hidden;
-            @include tablette-version {
-                border: none;
-                box-shadow: none;
-                border-radius: 0;
-                width: 10rem;
-                height: 10rem;
-            }
-            @include mobile-version {
-                width: 12rem;
-                height: 12rem;
-            }
             img {
                 width: 100%;
                 height: 100%;
