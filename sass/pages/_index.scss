@@ -10,7 +10,8 @@
     justify-content: space-around;
     flex-wrap: wrap;
     width: 100%;
-    @include borderRed;
+    border-bottom: solid $third-color 2px;
+    padding-bottom: 2rem;
     a {
         display: block;
         margin: 0;

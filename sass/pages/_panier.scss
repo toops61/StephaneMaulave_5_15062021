@@ -9,6 +9,9 @@
         width: 90%;
         display: flex;
         border-top: solid $fourth-color 1px;
+        p:nth-child(3) {
+            font-family: 'Raleway-bold';
+        }
         &__image {
             width: 10rem;
             height: 10rem;
@@ -20,13 +23,24 @@
             }
         }
         &__details {
-            @include borderGreen;
             flex: 1;
             p {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
+        }  
+    }
+    &__supprimer {
+        background-color: $third-color;
+        border: solid black 1px;
+        color: white;
+        @include borderRadius;
+        width: 7rem;
+        height: 2rem;
+        @include flexCenter;
+        margin-top: 2rem;
+        p {
+            margin: 0;
         }
-        
     }
 }
 
@@ -37,7 +51,7 @@
     border: solid black;
     width: 60%;
     max-width: 32rem;
-    margin: 1rem auto;
+    margin: 3rem auto;
     padding-bottom: 2rem;
     background-color: white;
     div {

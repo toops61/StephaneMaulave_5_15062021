@@ -30,6 +30,11 @@
   src: url('../fonts/Raleway-Regular.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'raleway bold';
+  src: url('../fonts/Raleway-Bold.ttf') format('truetype');
+}
+
 a {
   text-decoration: none;
   color: black;

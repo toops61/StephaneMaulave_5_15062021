@@ -34,3 +34,15 @@
         }
     }
 }
+
+.retour-accueil {
+    width: 8rem;
+    height: 3rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    h2::before {
+        @include icon("\f04a", 1.5rem);
+        margin-right: .5rem;
+    }
+}
