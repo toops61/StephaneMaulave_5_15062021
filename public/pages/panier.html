@@ -29,9 +29,42 @@
             </nav>
         </header>
         <main>
-            <div>
-                <div></div>
-            </div>
+            <section class="panier-resume">
+                <h2>Panier</h2>
+                <div class="panier-resume__article">
+                    <div class="panier-resume__article__image">
+                        <img src="../images/articles/480px_webP/teddy_1_480px.webp" alt="article">
+                    </div>
+                    <div class="panier-resume__article__details">
+                        <p class="panier-resume__name">article : </p>
+                        <p class="panier-resume__quantite">quantité : </p>
+                        <div class="panier-resume__supprimer"><p>supprimer</p></div>
+                    </div>
+                    <p class="panier-resume__price">prix</p>
+                </div>
+                <p id="total-price">total :</p>
+            </section>
+            <section class="panier-form">
+                <div>
+                    <label for="firstName">Nom</label>
+                    <input type="text" id="firstName" required>
+                </div>
+                <div>
+                    <label for="lastName">Prénom</label>
+                    <input type="text" id="lastName" required>
+                </div>
+                <div>
+                    <label for="address">Adresse</label>
+                    <input type="text" id="address" required>
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div id="submit-btn">
+                    <input type="submit" value="envoyer le formulaire">
+                </div>
+            </section>
         </main>
     </div>
     <footer></footer>

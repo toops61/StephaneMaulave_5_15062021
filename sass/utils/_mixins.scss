@@ -23,6 +23,10 @@
     border: solid $fourth-color;
 }
 
+@mixin borderRadius {
+    border-radius: 30px;
+}
+
 @mixin flex-column {
     display: flex;
     flex-direction: column;
