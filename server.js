@@ -1,5 +1,5 @@
-const http = 'http://localhost:3000/api/teddies';
-const app = './app.js';
+const http = require('http');
+const app = require('./app');
 
 const normalizePort = val => {
   const port = parseInt(val, 10);
