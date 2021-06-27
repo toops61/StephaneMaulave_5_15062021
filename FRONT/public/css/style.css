@@ -386,6 +386,9 @@ li {
 .panier-resume__article__details p {
   font-size: 1.1rem;
 }
+.panier-resume__quantite input {
+  width: 2rem;
+}
 .panier-resume__supprimer {
   background-color: #E38D02;
   border: solid black 1px;

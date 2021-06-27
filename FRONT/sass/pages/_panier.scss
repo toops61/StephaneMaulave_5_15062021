@@ -30,6 +30,9 @@
             }
         }  
     }
+    &__quantite input {
+        width: 2rem;
+    }
     &__supprimer {
         background-color: $third-color;
         border: solid black 1px;
