@@ -381,6 +381,7 @@ li {
 }
 .panier-resume__article__details {
   flex: 1;
+  margin-left: 2rem;
 }
 .panier-resume__article__details p {
   font-size: 1.1rem;

@@ -1,21 +1,21 @@
-fetch('http://localhost:3000/api/teddies')
+fetch('http://localhost:3000/api/teddies/' + '5be9c8541c9d440000665243')
         .then(function(res) {
             if(res.ok) {
-                const productsArray = res.json();
-                return productsArray;
+                const chosenTeddy = res.json();
+                return chosenTeddy;
             }
         })
         .then(function(value) {
-                let teddy = value[0];
-                document.getElementById("product-name").textContent = teddy.name;
-                document.getElementById("teddy-description").textContent = teddy.description;
+            document.getElementById("product-image").innerHTML = '<img src="' + value.imageUrl + '"alt=ours en peluche"></img>';
+                document.getElementById("product-name").textContent = value.name;
+                document.getElementById("teddy-description").textContent = value.description;
                 let colorNav = document.getElementById("teddy-color");
-                let arrayColors = teddy.colors;
+                let arrayColors = value.colors;
                 for (let ind = 0; ind < arrayColors.length; ind++) {
                     let objectColor = document.createElement("li");
                     objectColor.innerHTML = arrayColors[ind];
                     colorNav.appendChild(objectColor);
-                document.getElementById("teddy-price").textContent = teddy.price*0.01 + " €";
+                document.getElementById("teddy-price").textContent = value.price*0.01 + " €";
             }   
         })
         .catch(function(error) {
