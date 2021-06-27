@@ -39,14 +39,14 @@
                 </div>
                 <p id="total-price">total :</p>
             </section>
-            <section class="panier-form">
+            <form class="panier-form">
                 <div>
                     <label for="firstName">Nom</label>
-                    <input type="text" id="firstName" required>
+                    <input type="text" id="firstName" pattern="[^0-9]" minlength="3" maxlength="20" required>
                 </div>
                 <div>
                     <label for="lastName">Prénom</label>
-                    <input type="text" id="lastName" required>
+                    <input type="text" id="lastName" pattern="[^0-9]" minlength="3" maxlength="20" required>
                 </div>
                 <div>
                     <label for="address">Adresse</label>
@@ -63,7 +63,7 @@
                 <div id="submit-btn">
                     <input type="submit" value="valider la commande">
                 </div>
-            </section>
+            </form>
         </main>
     </div>
     <footer></footer>
