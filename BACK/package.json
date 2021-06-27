@@ -1,0 +1,21 @@
+{
+  "name": "orinoco-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toops61/StephaneMaulave_5_15062021.git"
+  },
+  "bugs": {
+    "url": "https://github.com/toops61/essais_JS/issues"
+  },
+  "author": "Maulave Stephane",
+  "license": "ISC",
+  "dependencies": {
+    "uuid": "^3.3.2"
+  }
+}
