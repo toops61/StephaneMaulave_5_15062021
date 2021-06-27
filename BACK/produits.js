@@ -8,7 +8,7 @@ fetch('http://localhost:3000/api/teddies')
         .then(function(value) {
             for (let i = 0; i < value.length; i++) {
                 document.getElementById("teddy-name" + i).textContent = value[i].name;
-                document.getElementById("teddy-price" + i).textContent = value[i].price*0.01 + " €";
+                document.getElementById("teddy-price" + i).textContent = value[i].price*0.01 + ".00 €";
             }   
         })
         .catch(function(error) {
