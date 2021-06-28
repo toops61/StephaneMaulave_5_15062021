@@ -1,4 +1,7 @@
-fetch('http://localhost:3000/api/teddies/' + '5be9c8541c9d440000665243')
+let nounoursId = window.location.search.substring(4);
+nounoursId = 'http://localhost:3000/api/teddies/' + nounoursId;
+
+fetch(nounoursId)
         .then(function(res) {
             if(res.ok) {
                 const chosenTeddy = res.json();
