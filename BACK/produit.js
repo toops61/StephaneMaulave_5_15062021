@@ -27,28 +27,11 @@ fetch(nounoursIdUrl)
             console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);
         });
 
+//ajout du produit au localstorage en cliquant sur le panier dans la carte
 function addProduct(produit) {
     localStorage.setItem(nounoursId, produit);
 }
 let addToCart = document.getElementById('add-cart');
 addToCart.addEventListener('click', function(){addProduct(product.innerText)});
 let product = document.getElementById("product-name");
-
-//localStorage.clear();
-/*let request = new XMLHttpRequest('http://localhost:3000/api/teddies/order');
-request.open('post', 'http://localhost:3000/api/teddies/order');
-request.send(productsArray);
-request.onreadystatechange = function(){
-    if(this.readyState === 4 && this.status == 200){
-        console.log('ça marche ?');
-		//les traitements à effectuer quand on a la réponse
-	}
-} */
-
-
-
-
-/*
-value.quantite = 1;
- */
 
