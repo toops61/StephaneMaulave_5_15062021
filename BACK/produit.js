@@ -30,6 +30,7 @@ fetch(nounoursIdUrl)
 //ajout du produit au localstorage en cliquant sur le panier dans la carte
 function addProduct(produit) {
     localStorage.setItem(nounoursId, produit);
+    alert(produit + ' a été ajouté à votre panier')
 }
 let addToCart = document.getElementById('add-cart');
 addToCart.addEventListener('click', function(){addProduct(product.innerText)});
