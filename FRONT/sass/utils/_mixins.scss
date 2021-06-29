@@ -115,7 +115,6 @@
 }
 
 @mixin product-cards {
-    max-width: 65rem;
     width: 32rem;
     height: 20rem;
     display: flex;
@@ -127,9 +126,12 @@
     border-radius: 30px;
     @include btn-shadow;
     @media screen and (max-width:$breakpoint-ipad) {
-        @include borderThird;
+        width: 23rem;
+        height: 14rem;
+        margin: 1rem auto;
     }
     @media screen and (max-width:$breakpoint-mobile) {
-        flex-direction: column;
+        width: 16rem;
+        height: 10rem;
     }
 }

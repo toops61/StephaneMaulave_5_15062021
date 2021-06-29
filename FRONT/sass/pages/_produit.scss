@@ -8,6 +8,12 @@
         max-width: 66rem;
         margin-bottom: 2rem;
         @include borderThird;
+        @include tablette-version {
+            width: 100%;
+        }
+        @include mobile-version {
+            border: none;
+        }
         &__image {
             width: 50%;
             @include borderFourth;
@@ -15,6 +21,9 @@
             border-radius: 30px;
             overflow: hidden;
             margin: 4rem auto 2rem auto;
+            @include mobile-version {
+                width: 80%;
+            }
             img {
                 width: 100%;
                 height: 100%;
@@ -25,6 +34,12 @@
             width: 80%;
             p {
                 font-size: 1.5rem;
+                @include tablette-version {
+                    text-align: justify;
+                }
+                @include mobile-version {
+                    font-size: 1.2rem;
+                }
                 &:nth-child(4) {
                     text-align: right;
                 }
@@ -49,12 +64,17 @@
 
 .add-cart {
     position: absolute;
-    
     @include position(2rem, 2rem);
+    @include mobile-version {
+        @include position(.5rem, 1.6rem);
+    }
     @include flexCenter;
     &__icon {
         &::after {
             @include icon('\f291', 2.2rem);
+            @include tablette-version {
+                font-size: 1.8rem;
+            }
         }
         &::before {
             opacity: 0;
@@ -74,6 +94,9 @@
             @include position(-2rem, -2rem);
             white-space: nowrap;
             z-index: 10;
+            @include tablette-version {
+                display: none;
+            }
         }
         &:hover::before {
             opacity: .8;

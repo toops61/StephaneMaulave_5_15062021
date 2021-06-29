@@ -25,6 +25,12 @@
             @include borderThird;
             border-radius: 20px;
             overflow: hidden;
+            @include tablette-version {
+                margin: 1rem;
+            }
+            @include mobile-version {
+                margin: auto .7rem;
+            }
             img {
                 width: 100%;
                 height: 100%;
@@ -43,6 +49,9 @@
             margin: 0;
             h2 {
                 font-size: 1.8rem;
+                @include mobile-version {
+                    font-size: 1.2rem;
+                }
             }
             p {
                 text-align: right;

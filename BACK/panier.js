@@ -1,5 +1,8 @@
 let productsId = Object.getOwnPropertyNames(localStorage);
 let panierArray = [];
+let totalPanier = 0;
+let panierSection = document.getElementById('panier-section'); 
+panierSection.innerHTML += '<p id="total-price">total : </p>';
 for (let i = 0; i < productsId.length; i++) {
     fetch('http://localhost:3000/api/teddies/' + productsId[i])
         .then(function(res) {
@@ -13,7 +16,7 @@ for (let i = 0; i < productsId.length; i++) {
                 name: value.name,
                 quantite: 1,
                 prix: value.price,
-                imageURL: value.imageURL
+                image: value.imageURL
             };
             panierArray.push(produit);
             return panierArray;            
@@ -23,7 +26,15 @@ for (let i = 0; i < productsId.length; i++) {
             let panierSection = document.getElementById('panier-section');
             panierSection.innerHTML += '<div class="panier-resume__article"><div class="panier-resume__article__image" id="article-image' + i + '"></div><div class="panier-resume__article__details"><p class="panier-resume__name">article : Ours en peluche ' + produits[i].name + '</p><p class="panier-resume__quantite">quantité : <input type="number" min="1" max="99" value="1" id="quantite-produit"></p><div class="panier-resume__supprimer"><p>supprimer</p></div></div><p class="panier-resume__price" id="produit-price">' + produitPrice + ' €</p></div>';
             document.getElementById("article-image" + i).innerHTML = '<img src="' + produits[i].imageURL + '"alt=ours en peluche"></img>';
+            totalPanier += produitPrice;
+            return totalPanier;
         })
+        .then(function(total) {     
+            document.getElementById('total-price').innerHTML = total + ' €';
+        })
+        .catch(function(error) {
+            console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);
+        });
 }
 
 

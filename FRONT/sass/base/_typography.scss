@@ -38,6 +38,9 @@
 a {
   text-decoration: none;
   color: black;
+  @include tablette-version {
+    font-size: 1rem;
+  }
 }
 
 body {
@@ -47,10 +50,28 @@ body {
 h1 {
   text-align: center;
   font-size: 2rem;
+  @include tablette-version {
+    font-size: 1.6rem;
+  }
+  @include mobile-version {
+    font-size: 1.4rem;
+  }
+}
+
+h2 {
+  @include mobile-version {
+    font-size: 1.2rem;
+  }
 }
 
 p {
   font-size: 1.4rem;
+  @include tablette-version {
+    font-size: 1.2rem;
+  }
+  @include mobile-version {
+    font-size: 1rem;
+  }
 }
 
 li {

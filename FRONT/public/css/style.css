@@ -11,6 +11,11 @@ main {
   width: 80%;
   margin: 0 auto;
 }
+@media screen and (max-width: 400px) {
+  main {
+    width: 90%;
+  }
+}
 
 ul {
   padding-left: 0;
@@ -52,6 +57,11 @@ a {
   text-decoration: none;
   color: black;
 }
+@media screen and (max-width: 769px) {
+  a {
+    font-size: 1rem;
+  }
+}
 
 body {
   font-family: "raleway", Arial, Helvetica, sans-serif;
@@ -61,9 +71,35 @@ h1 {
   text-align: center;
   font-size: 2rem;
 }
+@media screen and (max-width: 769px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  h1 {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  h2 {
+    font-size: 1.2rem;
+  }
+}
 
 p {
   font-size: 1.4rem;
+}
+@media screen and (max-width: 769px) {
+  p {
+    font-size: 1.2rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  p {
+    font-size: 1rem;
+  }
 }
 
 li {
@@ -82,12 +118,32 @@ li {
   align-items: center;
   flex-wrap: wrap;
 }
+@media screen and (max-width: 769px) {
+  .footer-container__reseaux {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .footer-container__reseaux {
+    flex-direction: column;
+  }
+}
 .footer-container__reseaux li {
   border: solid;
   border-radius: 30px;
   background-color: white;
   padding: 0.5rem 1rem 0.5rem 0;
   font-size: 1.4rem;
+}
+@media screen and (max-width: 769px) {
+  .footer-container__reseaux li {
+    padding-top: 0.2rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  .footer-container__reseaux li {
+    margin-bottom: 1rem;
+  }
 }
 .footer-container__reseaux li:nth-child(1)::before {
   content: "";
@@ -142,6 +198,9 @@ li {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.footer-container__reseaux li:nth-child(n)::before {
+  font-size: 1.3rem;
+}
 
 .header {
   width: 80%;
@@ -158,7 +217,7 @@ li {
 .header__logo {
   width: 30%;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 769px) {
   .header__logo {
     width: 60%;
   }
@@ -218,7 +277,7 @@ li {
   width: 90%;
   margin: 0 auto;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 769px) {
   .main-section {
     width: 100%;
   }
@@ -237,7 +296,6 @@ li {
   margin: 0;
 }
 .products__card {
-  max-width: 65rem;
   width: 32rem;
   height: 20rem;
   display: flex;
@@ -249,14 +307,17 @@ li {
   border-radius: 30px;
   box-shadow: 2px 2px 14px black;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 769px) {
   .products__card {
-    border: solid #E38D02;
+    width: 23rem;
+    height: 14rem;
+    margin: 1rem auto;
   }
 }
 @media screen and (max-width: 400px) {
   .products__card {
-    flex-direction: column;
+    width: 16rem;
+    height: 10rem;
   }
 }
 .products__card__image {
@@ -266,6 +327,16 @@ li {
   border: solid #E38D02;
   border-radius: 20px;
   overflow: hidden;
+}
+@media screen and (max-width: 769px) {
+  .products__card__image {
+    margin: 1rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  .products__card__image {
+    margin: auto 0.7rem;
+  }
 }
 .products__card__image img {
   width: 100%;
@@ -285,6 +356,11 @@ li {
 }
 .products__card__description h2 {
   font-size: 1.8rem;
+}
+@media screen and (max-width: 400px) {
+  .products__card__description h2 {
+    font-size: 1.2rem;
+  }
 }
 .products__card__description p {
   text-align: right;
@@ -307,6 +383,16 @@ li {
   margin-bottom: 2rem;
   border: solid #E38D02;
 }
+@media screen and (max-width: 769px) {
+  .product__card {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .product__card {
+    border: none;
+  }
+}
 .product__card__image {
   width: 50%;
   border: solid #bb491c;
@@ -314,6 +400,11 @@ li {
   border-radius: 30px;
   overflow: hidden;
   margin: 4rem auto 2rem auto;
+}
+@media screen and (max-width: 400px) {
+  .product__card__image {
+    width: 80%;
+  }
 }
 .product__card__image img {
   width: 100%;
@@ -325,6 +416,16 @@ li {
 }
 .product__card__description p {
   font-size: 1.5rem;
+}
+@media screen and (max-width: 769px) {
+  .product__card__description p {
+    text-align: justify;
+  }
+}
+@media screen and (max-width: 400px) {
+  .product__card__description p {
+    font-size: 1.2rem;
+  }
 }
 .product__card__description p:nth-child(4) {
   text-align: right;
@@ -360,6 +461,12 @@ li {
   justify-content: center;
   align-items: center;
 }
+@media screen and (max-width: 400px) {
+  .add-cart {
+    top: 0.5rem;
+    right: 1.6rem;
+  }
+}
 .add-cart__icon::after {
   content: "";
   font-family: "Font Awesome 5";
@@ -370,6 +477,11 @@ li {
   text-rendering: auto;
   line-height: 1;
   color: black;
+}
+@media screen and (max-width: 769px) {
+  .add-cart__icon::after {
+    font-size: 1.8rem;
+  }
 }
 .add-cart__icon::before {
   opacity: 0;
@@ -391,6 +503,11 @@ li {
   white-space: nowrap;
   z-index: 10;
 }
+@media screen and (max-width: 769px) {
+  .add-cart__icon::before {
+    display: none;
+  }
+}
 .add-cart__icon:hover::before {
   opacity: 0.8;
 }
@@ -398,8 +515,8 @@ li {
 .panier-resume {
   width: 90%;
   background-color: white;
-  max-width: 75rem;
-  margin: 1rem auto;
+  max-width: 55rem;
+  margin: 3rem auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -408,6 +525,7 @@ li {
 .panier-resume__article {
   width: 90%;
   display: flex;
+  flex-wrap: wrap;
   border-top: solid #bb491c 1px;
 }
 .panier-resume__article p:nth-child(3) {
@@ -418,6 +536,12 @@ li {
   height: 10rem;
   margin: 1rem;
 }
+@media screen and (max-width: 769px) {
+  .panier-resume__article__image {
+    width: 8rem;
+    height: 8rem;
+  }
+}
 .panier-resume__article__image img {
   width: 100%;
   height: 100%;
@@ -425,7 +549,7 @@ li {
 }
 .panier-resume__article__details {
   flex: 1;
-  margin-left: 2rem;
+  margin: 1rem;
 }
 .panier-resume__article__details p {
   font-size: 1.1rem;
@@ -444,6 +568,7 @@ li {
   justify-content: center;
   align-items: center;
   margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 .panier-resume__supprimer p {
   margin: 0;
@@ -459,6 +584,16 @@ li {
   margin: 3rem auto;
   padding-bottom: 2rem;
   background-color: white;
+}
+@media screen and (max-width: 769px) {
+  .panier-form {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .panier-form {
+    width: 100%;
+  }
 }
 .panier-form div {
   width: 80%;

@@ -9,11 +9,23 @@
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
+        @include tablette-version {
+            width: 90%;
+        }
+        @include mobile-version {
+            flex-direction: column;
+        }
         li {
             border: solid;
             border-radius: 30px;
             background-color: white;
             padding: .5rem 1rem .5rem 0;
+            @include tablette-version {
+                padding-top: .2rem;
+            }
+            @include mobile-version {
+                margin-bottom: 1rem;
+            }
             font-size: 1.4rem;
             &:nth-child(1) {
                 &::before {
@@ -44,7 +56,12 @@
                 &:hover {
                     @include instagramColor;
                 }
-            } 
+            }
+            &:nth-child(n) {
+                &::before {
+                    font-size: 1.3rem;
+                }
+            }      
         }
     }
 }
