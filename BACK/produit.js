@@ -1,7 +1,9 @@
+//recuperation de ID objet via URL
 let nounoursId = window.location.search.substring(4);
-nounoursId = 'http://localhost:3000/api/teddies/' + nounoursId;
+nounoursIdUrl = 'http://localhost:3000/api/teddies/' + nounoursId;
 
-fetch(nounoursId)
+//promise pour l'affichage dynamique du produit
+fetch(nounoursIdUrl)
         .then(function(res) {
             if(res.ok) {
                 const chosenTeddy = res.json();
@@ -25,21 +27,28 @@ fetch(nounoursId)
             console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);
         });
 
-let request = new XmlHttpRequest(nounoursId);
+function addProduct(produit) {
+    localStorage.setItem(nounoursId, produit);
+}
+let addToCart = document.getElementById('add-cart');
+addToCart.addEventListener('click', function(){addProduct(product.innerText)});
+let product = document.getElementById("product-name");
+
+//localStorage.clear();
+/*let request = new XMLHttpRequest('http://localhost:3000/api/teddies/order');
+request.open('post', 'http://localhost:3000/api/teddies/order');
+request.send(productsArray);
 request.onreadystatechange = function(){
-    if(this.readyState == 4 && this.status == 200){
-        console.log(this.responseText);
+    if(this.readyState === 4 && this.status == 200){
+        console.log('ça marche ?');
 		//les traitements à effectuer quand on a la réponse
 	}
-}
-request.open("GET","/name");
-request.send(null);
+} */
 
+
+
+
+/*
 value.quantite = 1;
-function addProduct(produit) {
-    produit.quantite ++;
-    productsArray.push(produit);
-}
-let productsArray = [];
-let ajoutPanier = document.getElementById('add-cart').addEventListener('click', addProduct(value));
+ */
 
