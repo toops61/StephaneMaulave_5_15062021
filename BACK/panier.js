@@ -30,7 +30,7 @@ for (let i = 0; i < productsId.length; i++) {
             return totalPanier;
         })
         .catch(function(error) {
-            console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);
+            console.log('Il y a eu un problème, essayer ultérieurement: ' + error.message);
         });
 }
 
@@ -42,6 +42,7 @@ setTimeout(function() {
     }
 }, 500);
 
+//recalcule les totaux si la quantite change
 function updatePrice() {
     totalPanier = 0;
     for (let ind = 0; ind < panierArray.length; ind++) {
@@ -55,9 +56,19 @@ function updatePrice() {
     document.getElementById('total-price').textContent = 'total : ' + totalPanier + ' €';
 }
 
+//prends en compte les évènements de click sur quantité ou/et supprimer
 setTimeout(function() {
     for (let index = 0; index < panierArray.length; index++) {
         let input = document.querySelectorAll('section input')[index];
         input.addEventListener('click', updatePrice);
+        let supprime = document.querySelectorAll('section div.panier-resume__supprimer')[index];
+        supprime.addEventListener('click', supprimeArticle);
+        function supprimeArticle() {
+            document.getElementById('quantite-produit' + index).value = 0;
+            let supDiv = document.getElementsByClassName('panier-resume__article')[index];
+            supDiv.style.display = ('none');
+            updatePrice();
+            localStorage.removeItem(productsId[index]);
+        }
     }
 }, 2000);

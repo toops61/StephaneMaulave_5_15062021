@@ -33,6 +33,6 @@ function addProduct(produit) {
     alert(produit + ' a été ajouté à votre panier')
 }
 let addToCart = document.getElementById('add-cart');
-addToCart.addEventListener('click', function(){addProduct(product.innerText)});
+addToCart.addEventListener('click', function(){addProduct(product.textContent)});
 let product = document.getElementById("product-name");
 
