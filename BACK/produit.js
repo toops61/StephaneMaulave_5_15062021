@@ -24,7 +24,9 @@ fetch(nounoursIdUrl)
             }   
         })
         .catch(function(error) {
-            console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);
+            document.querySelector('main article h1').textContent = 'désolé, il y a eu un problème lors du chargement';
+            document.querySelector('footer').style.display = 'none';
+            console.log('Il y a eu un problème : ' + error.message);
         });
 
 //ajout du produit au localstorage en cliquant sur le panier dans la carte

@@ -15,6 +15,8 @@ fetch('http://localhost:3000/api/teddies')
             }   
         })
         .catch(function(error) {
-            console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);
+            document.querySelector('main article h1').textContent = 'désolé, il y a eu un problème lors du chargement';
+            document.querySelector('footer').style.display = 'none';
+            console.log('Il y a eu un problème : ' + error.message);
         });
 
