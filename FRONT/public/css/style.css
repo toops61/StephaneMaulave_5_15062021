@@ -333,8 +333,6 @@ li {
 .loader__grandOurs {
   width: 16rem;
   height: 20rem;
-  margin-left: 8%;
-  margin-top: 10%;
   animation: fadeIn 2s ease-in-out 10 forwards;
 }
 @media screen and (max-width: 769px) {

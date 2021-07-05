@@ -4,6 +4,8 @@ let totalPanier = 0;
 let panierSection = document.getElementById('panier-section');
 
 //recuperation de chaque produit stocké dans le local storage pour affichage
+const tableauProduits = JSON.parse(localStorage.getItem('tableauStorage'));
+
 for (let i = 0; i < productsId.length; i++) {
     fetch('http://localhost:3000/api/teddies/' + productsId[i])
         .then(function(res) {

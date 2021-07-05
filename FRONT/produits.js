@@ -1,3 +1,4 @@
+// appel de l'API et stockage du tableau resultant
 fetch('http://localhost:3000/api/teddies')
         .then(function(res) {
             if(res.ok) {
@@ -20,11 +21,12 @@ fetch('http://localhost:3000/api/teddies')
 window.addEventListener('load', function(){
     loader.className += " hidden";
 }) */
+
 //loader de 4 secondes
 const loader = document.querySelector('div.loader');
 setTimeout(function () {
     loader.className += " hidden";
-}, 4000)
+}, 3500)
 
 setTimeout(function() {
     for (let i = 0; i < tableauProduits.length; i++) {
@@ -35,3 +37,11 @@ setTimeout(function() {
         document.getElementById("teddy-price" + i).textContent = tableauProduits[i].price*0.01 + " €";
     }
 },4000);
+
+setTimeout(function() {
+    if (localStorage.length === 0) {
+        localStorage.setItem('tableauStorage', JSON.stringify(tableauProduits));
+    } else {
+        tableauProduits = JSON.parse(localStorage.getItem('tableauStorage'));
+    }
+}, 4000);
