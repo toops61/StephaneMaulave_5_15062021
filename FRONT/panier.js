@@ -3,55 +3,38 @@ let panierArray = [];
 let totalPanier = 0;
 let panierSection = document.getElementById('panier-section');
 
-//recuperation de chaque produit stocké dans le local storage pour affichage
+//creation d'un tableau de produits selectionnés pour le panier :
 const tableauProduits = JSON.parse(localStorage.getItem('tableauStorage'));
-
-for (let i = 0; i < productsId.length; i++) {
-    fetch('http://localhost:3000/api/teddies/' + productsId[i])
-        .then(function(res) {
-            if(res.ok) {
-                let product = res.json();
-                return product;
-            }
-        })
-        .then(function(value) {
-            let produit = {
-                name: value.name,
-                quantite: 1,
-                prix: value.price,
-                image: value.imageUrl
-            };
-            panierArray.push(produit);
-            return panierArray;            
-        })
-        .then(function(produits) {
-            let produitPrice = produits[i].prix * 0.01;
-            let panierSection = document.getElementById('panier-section');
-            panierSection.innerHTML += '<div class="panier-resume__article"><div class="panier-resume__article__image" tabindex="0" id="article-image' + i + '"></div><div class="panier-resume__article__details"><p tabindex="0" class="panier-resume__name">article : Ours en peluche ' + produits[i].name + '</p><label for="quantite-produit' + i + '" class="panier-resume__quantite">quantité : </label><input type="number" min="1" max="99" value="1" id="quantite-produit' + i + '"><div tabindex="0" class="panier-resume__supprimer"><p>supprimer</p></div></div><p tabindex="0" class="panier-resume__price" id="produit-price' + i + '">' + produitPrice + ' €</p></div>';
-            document.getElementById("article-image" + i).innerHTML = '<img src="' + produits[i].image + '"alt=ours en peluche"></img>';
-            totalPanier += produitPrice;
-            return totalPanier;
-        })
-        .catch(function(error) {
-            console.log('Il y a eu un problème, essayer ultérieurement: ' + error.message);
-        });
+for (let i = 0; i < tableauProduits.length; i++) {
+    if (tableauProduits[i].quantite >= 1) {
+        panierArray.push(tableauProduits[i]);
+    }   
 }
 
-setTimeout(function() {
-    if (totalPanier === 0) {
-        panierSection.innerHTML = '<p>votre panier est vide</p>';
-    } else {
-        panierSection.innerHTML += '<p tabindex="0" id="total-price">total : ' + totalPanier + ' €</p>';
-    }
-}, 500);
+//mise en place des produits dans le panier
+for (let ind = 0; ind < panierArray.length; ind++) {
+    let produitPrice = panierArray[ind].price * 0.01 * panierArray[ind].quantite;
+    let panierSection = document.getElementById('panier-section');
+    panierSection.innerHTML += '<div class="panier-resume__article"><div class="panier-resume__article__image" tabindex="0" id="article-image' + ind + '"></div><div class="panier-resume__article__details"><p tabindex="0" class="panier-resume__name">article : Ours en peluche ' + panierArray[ind].name + '</p><label for="quantite-produit' + ind + '" class="panier-resume__quantite">quantité : </label><input type="number" min="1" max="99" value=' + panierArray[ind].quantite + ' id="quantite-produit' + ind + '"><div tabindex="0" class="panier-resume__supprimer"><p>supprimer</p></div></div><p tabindex="0" class="panier-resume__price" id="produit-price' + ind + '">' + produitPrice + ' €</p></div>';
+    document.getElementById("article-image" + ind).innerHTML = '<img src="' + panierArray[ind].imageUrl + '"alt=ours en peluche"></img>';
+    totalPanier += produitPrice;
+}
+
+//si le panier est vide, afficher message.
+if (totalPanier === 0) {
+    panierSection.innerHTML = '<p>votre panier est vide</p>';
+} else {
+    panierSection.innerHTML += '<p tabindex="0" id="total-price">total : ' + totalPanier + ' €</p>';
+}
+
 
 //recalcule les totaux si la quantite change
 function updatePrice() {
     totalPanier = 0;
-    for (let ind = 0; ind < panierArray.length; ind++) {
-        let quantite = document.getElementById('quantite-produit' + ind).value;
-        let prix = document.getElementById('produit-price' + ind);
-        let price = panierArray[ind].prix * .01;
+    for (let index = 0; index < panierArray.length; index++) {
+        let quantite = document.getElementById('quantite-produit' + index).value;
+        let prix = document.getElementById('produit-price' + index);
+        let price = panierArray[index].price * .01;
         totalPanier += price;
         prix.textContent = price * quantite + ' €';
         totalPanier += price * quantite - price;
@@ -64,6 +47,7 @@ setTimeout(function() {
     for (let index = 0; index < panierArray.length; index++) {
         let input = document.querySelectorAll('section input')[index];
         input.addEventListener('click', updatePrice);
+        input.addEventListener('input', updatePrice);
         let supprime = document.querySelectorAll('section div.panier-resume__supprimer')[index];
         supprime.addEventListener('click', supprimeArticle);
         function supprimeArticle() {
@@ -71,7 +55,7 @@ setTimeout(function() {
             let supDiv = document.getElementsByClassName('panier-resume__article')[index];
             supDiv.style.display = ('none');
             updatePrice();
-            localStorage.removeItem(productsId[index]);
+            
         }
     }
 }, 2000);

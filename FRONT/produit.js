@@ -31,6 +31,8 @@ function addProduct(produit) {
     } else {
         tableauProduits[idTeddy].quantite = 1;
     }
+    //localStorage.clear();
+    localStorage.setItem('tableauStorage', JSON.stringify(tableauProduits));
     alert(produit + ' a été ajouté à votre panier');
 }
 let addToCart = document.getElementById('add-cart');
