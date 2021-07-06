@@ -4,7 +4,7 @@ let totalPanier = 0;
 let panierSection = document.getElementById('panier-section');
 
 //creation d'un tableau de produits selectionnés pour le panier :
-const tableauProduits = JSON.parse(localStorage.getItem('tableauStorage'));
+let tableauProduits = JSON.parse(localStorage.getItem('tableauStorage'));
 for (let i = 0; i < tableauProduits.length; i++) {
     if (tableauProduits[i].quantite >= 1) {
         panierArray.push(tableauProduits[i]);
@@ -38,8 +38,14 @@ function updatePrice() {
         totalPanier += price;
         prix.textContent = price * quantite + ' €';
         totalPanier += price * quantite - price;
+        for (let i = 0; i < tableauProduits.length; i++) {
+            if (tableauProduits[i].name === panierArray[index].name) {
+                tableauProduits[i].quantite = quantite;
+            }       
+        }
     };
     document.getElementById('total-price').textContent = 'total : ' + totalPanier + ' €';
+    localStorage.setItem('tableauStorage', JSON.stringify(tableauProduits));
 }
 
 //prends en compte les évènements de click sur quantité ou/et supprimer
