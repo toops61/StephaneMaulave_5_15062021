@@ -333,17 +333,17 @@ li {
 .loader__grandOurs {
   width: 16rem;
   height: 20rem;
-  animation: fadeIn 2s ease-in-out 10 forwards;
+  animation: fadeIn 2s ease-in-out 2 forwards;
 }
 @media screen and (max-width: 769px) {
   .loader__grandOurs {
-    width: 14rem;
+    width: 11rem;
     height: 14rem;
   }
 }
 @media screen and (max-width: 400px) {
   .loader__grandOurs {
-    width: 10rem;
+    width: 7rem;
     height: 10rem;
   }
 }
@@ -356,11 +356,11 @@ li {
   position: absolute;
   width: 2rem;
   height: 3rem;
-  animation: animation-petits 2s ease 10 forwards;
+  animation: animation-petits 2s ease 2 forwards;
 }
 @media screen and (max-width: 400px) {
   .loader__petitsOurs {
-    width: 2rem;
+    width: 1.3rem;
     height: 2rem;
   }
 }
@@ -514,14 +514,119 @@ li {
 .products__card__description h2 {
   font-size: 1.8rem;
 }
+@media screen and (max-width: 769px) {
+  .products__card__description h2 {
+    font-size: 1.4rem;
+    margin-top: 0.5rem;
+  }
+}
 @media screen and (max-width: 400px) {
   .products__card__description h2 {
     font-size: 1.2rem;
+    margin-top: 0;
   }
 }
 .products__card__description p {
   text-align: right;
   bottom: 1rem;
+}
+
+.plus {
+  margin: 0 auto;
+}
+.plus div {
+  transform: scale(1);
+  transition: transform 400ms ease-in-out;
+}
+.plus div:hover {
+  transform: scale(2);
+}
+@media screen and (max-width: 769px) {
+  .plus div:hover {
+    transform: none;
+  }
+}
+.plus div::before {
+  content: "";
+  font-family: "Font Awesome 5";
+  font-weight: 900;
+  font-size: 2rem;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  color: black;
+  color: #925100;
+}
+
+.add-cartIndex {
+  position: absolute;
+  top: 1.2rem;
+  right: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 400px) {
+  .add-cartIndex {
+    top: 0.5rem;
+    right: 1.6rem;
+  }
+}
+.add-cartIndex__icon::after {
+  content: "";
+  font-family: "Font Awesome 5";
+  font-weight: 900;
+  font-size: 2.2rem;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  color: black;
+}
+@media screen and (max-width: 769px) {
+  .add-cartIndex__icon::after {
+    font-size: 1.8rem;
+  }
+}
+.add-cartIndex__icon::before {
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease-in-out;
+  font-family: sans-serif !important;
+  font-weight: normal !important;
+  font-style: normal !important;
+  text-shadow: none !important;
+  font-size: 0.8rem !important;
+  background: rgba(33, 37, 41, 0.9);
+  border-radius: 4px;
+  color: #fff;
+  content: "ajouter au panier";
+  padding: 0.5em 1em;
+  position: absolute;
+  top: -2rem;
+  right: -2rem;
+  white-space: nowrap;
+  z-index: 10;
+}
+@media screen and (max-width: 769px) {
+  .add-cartIndex__icon::before {
+    display: none;
+  }
+}
+.add-cartIndex__icon:hover::before {
+  opacity: 0.8;
+}
+@media screen and (max-width: 769px) {
+  .add-cartIndex {
+    right: 4rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  .add-cartIndex {
+    top: 1rem;
+    right: 2.6rem;
+  }
 }
 
 .product {
@@ -643,7 +748,7 @@ li {
 .add-cart__icon::before {
   opacity: 0;
   pointer-events: none;
-  transition: all 0.2s ease-in-out 0.2s;
+  transition: all 0.2s ease-in-out;
   font-family: sans-serif !important;
   font-weight: normal !important;
   font-style: normal !important;
@@ -667,6 +772,10 @@ li {
 }
 .add-cart__icon:hover::before {
   opacity: 0.8;
+}
+
+.cart-prix {
+  position: relative;
 }
 
 .panier-resume {

@@ -17,7 +17,6 @@ fetch('http://localhost:3000/api/teddies')
 
 //loader pendant le chargement de la page
 /* const loader = document.querySelector('div.loader');
-
 window.addEventListener('load', function(){
     loader.className += " hidden";
 }) */
@@ -31,7 +30,7 @@ setTimeout(function () {
 setTimeout(function() {
     for (let i = 0; i < tableauProduits.length; i++) {
         let productSection = document.getElementById('productsSection');
-        productSection.innerHTML += '<a href="./produit.html?id=' + tableauProduits[i]._id + '" id="lien-product' + i + '"><div class="products__card"><div class="products__card__image" tabindex="0" id="teddy-image' + i + '"></div><div class="products__card__description"><h2 tabindex="0" id="teddy-name' + i + '"></h2><p tabindex="0" id="teddy-price' + i + '"></p></div></div></a>';
+        productSection.innerHTML += '<a href="./produit.html?id=' + tableauProduits[i]._id + '" id="lien-product' + i + '"><div class="products__card"><div class="products__card__image" tabindex="0" id="teddy-image' + i + '"></div><div class="products__card__description"><h2 tabindex="0" id="teddy-name' + i + '"></h2><div class="plus"><div></div></div><div class="cart-prix"><div class="add-cartIndex"><div class=add-cartIndex__icon></div></div><p tabindex="0" id="teddy-price' + i + '"></p></div></div></div></a>';
         document.getElementById("teddy-image" + i).innerHTML = '<img src="' + tableauProduits[i].imageUrl + '"alt=ours en peluche"></img>';
         document.getElementById("teddy-name" + i).textContent = tableauProduits[i].name;
         document.getElementById("teddy-price" + i).textContent = tableauProduits[i].price*0.01 + " €";
