@@ -61,7 +61,6 @@ setTimeout(function() {
             let supDiv = document.getElementsByClassName('panier-resume__article')[index];
             supDiv.style.display = ('none');
             updatePrice();
-            
         }
     }
 }, 2000);
@@ -99,14 +98,14 @@ let lastName = inputsArray[1];
 let address = inputsArray[2];
 let city = inputsArray[3];
 let email = inputsArray[4];
-//let regexText = /^[0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,31}$/;
-let regexText = /[^0-9/=;`$&"()§!@≠…∞€ø«¡¶{}“]{2,31}$/;
-let regexAdress = /[^/=;`$&"()§!@≠…∞€ø«¡¶{}“]{3,50}$/;
+
+let regexText = /[0-9/=;`$&"()§!@≠…∞€ø«¡¶{}“]/;
+let regexAdress = /[/=;`$&"()§!@≠…∞€ø«¡¶{}“]/;
 let regexMail = /^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]+([_|\.|-]­{1}[a-z0-9]+)*[\.]{1}[a-z]{2,6}$/;
  
-//validation des champs
-function formInput(inputName, regex) {
-    if (regex.exec(inputName.value) == null) {
+//regex exclu
+function rejectInput(inputName, regex) {
+    if (regex.exec(inputName.value) != null) {
         inputName.classList.add('invalid');
     }
     else {
@@ -115,23 +114,37 @@ function formInput(inputName, regex) {
     }
 }
 firstName.addEventListener('input', function(){
-    formInput(firstName, regexText);
+    rejectInput(firstName, regexText);
 });
 lastName.addEventListener('input', function(){
-    formInput(lastName, regexText);
+    rejectInput(lastName, regexText);
 });
 address.addEventListener('input', function(){
-    formInput(address, regexAdress);
+    rejectInput(address, regexAdress);
 });
 city.addEventListener('input', function(){
-    formInput(city, regexAdress);
+    rejectInput(city, regexAdress);
 });
+
+//Regex attendu
+function expectInput(inputName, regex) {
+    if (regex.exec(inputName.value) == null) {
+        inputName.classList.add('invalid');
+    }
+    else {
+        inputName.classList.remove('invalid');
+        panierContact.champ = inputName.value;
+    }
+}
 email.addEventListener('input', function(){
-    formInput(email, regexMail);
+    expectInput(email, regexMail);
 });
 
 //validation de la commande
 let validButton = document.querySelector('form div#submit-btn input');
+/* validButton.addEventListener("click", function(event) {
+    event.preventDefault();
+}, false); */
 validButton.addEventListener('click', createArray);
 validButton.addEventListener('click', takeInputs);
 
