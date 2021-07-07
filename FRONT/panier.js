@@ -82,27 +82,6 @@ function createArray() {
     }
 }
 
-
-//formulaire vérification des champs
-let inputsArray = document.querySelectorAll('form input');
-let firstName = inputsArray[0];
-let lastName = inputsArray[1];
-let address = inputsArray[2];
-let city = inputsArray[3];
-let email = inputsArray[4];
-
-/* function isValid(value) {
-    return /^e[0-9]{3,}$/.test(value);
-}
-myInput.addEventListener('input', function(e) {
-    var value = e.target.value;
-    if (value.startsWith('Hello ')) {
-        isValid = true;
-    } else {
-        isValid = false;
-    }
-}); */
-
 //capture des champs du formaulaire
 let panierContact = {};
 function takeInputs() {
@@ -113,13 +92,51 @@ function takeInputs() {
     panierContact.email = email.value;
 }
 
+//formulaire vérification des champs
+let inputsArray = document.querySelectorAll('form input');
+let firstName = inputsArray[0];
+let lastName = inputsArray[1];
+let address = inputsArray[2];
+let city = inputsArray[3];
+let email = inputsArray[4];
+//let regexText = /^[0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,31}$/;
+let regexText = /[^0-9/=;`$&"()§!@≠…∞€ø«¡¶{}“]{2,31}$/;
+let regexAdress = /[^/=;`$&"()§!@≠…∞€ø«¡¶{}“]{3,50}$/;
+let regexMail = /^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]+([_|\.|-]­{1}[a-z0-9]+)*[\.]{1}[a-z]{2,6}$/;
+ 
+//validation des champs
+function formInput(inputName, regex) {
+    if (regex.exec(inputName.value) == null) {
+        inputName.classList.add('invalid');
+    }
+    else {
+        inputName.classList.remove('invalid');
+        panierContact.champ = inputName.value;
+    }
+}
+firstName.addEventListener('input', function(){
+    formInput(firstName, regexText);
+});
+lastName.addEventListener('input', function(){
+    formInput(lastName, regexText);
+});
+address.addEventListener('input', function(){
+    formInput(address, regexAdress);
+});
+city.addEventListener('input', function(){
+    formInput(city, regexAdress);
+});
+email.addEventListener('input', function(){
+    formInput(email, regexMail);
+});
+
 //validation de la commande
 let validButton = document.querySelector('form div#submit-btn input');
 validButton.addEventListener('click', createArray);
 validButton.addEventListener('click', takeInputs);
 
 //API fetch requete POST pour formulaire et array de produits
-const url = 'http://localhost:3000/api/teddies/order';
+//const url = 'http://localhost:3000/api/teddies/order';
 
 /* var request = new Request(url, {
     method: 'POST',

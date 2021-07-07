@@ -472,6 +472,17 @@ li {
   background-color: #925100;
 }
 
+form div:invalid {
+  border: solid red 1px;
+}
+form div:valid {
+  border: solid green;
+}
+
+.invalid {
+  border: solid red;
+}
+
 .main-section {
   width: 90%;
   margin: 0 auto;
@@ -929,6 +940,7 @@ li {
 .panier-form div input:nth-child(1) {
   width: 10rem;
   border-radius: 30px;
+  margin-left: 7rem;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -88,6 +88,7 @@
             &:nth-child(1) {
                 width: 10rem;
                 @include borderRadius;
+                margin-left: 7rem;
             }
         }
     }

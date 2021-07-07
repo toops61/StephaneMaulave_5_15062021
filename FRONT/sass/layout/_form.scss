@@ -1,0 +1,12 @@
+form div {
+    &:invalid {
+        border: solid red 1px;
+    }
+    &:valid {
+        border: solid green;
+    }
+}
+
+.invalid {
+    border: solid red;
+}
