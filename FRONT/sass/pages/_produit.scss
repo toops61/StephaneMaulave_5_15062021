@@ -62,7 +62,32 @@
     }
 }
 .add-cart {
-    @include addCart;
+    position: absolute;
+    @include position(4rem, 4rem);
+    @include mobile-version {
+        @include position(29rem, 2rem);
+    }
+    @include flexCenter;
+    &__icon {
+        &::after {
+            @include icon('\f291', 4rem);
+            color: $fifth-color;
+            @include tablette-version {
+                font-size: 3rem;
+            }
+        }
+        &::before {
+            @include textBulle;
+            top: -3rem;
+            right: -3rem;
+            @include tablette-version {
+                display: none;
+            }
+        }
+        &:hover::before {
+            opacity: .8;
+        }
+    }
 }
 
 .cart-prix {

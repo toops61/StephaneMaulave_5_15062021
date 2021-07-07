@@ -24,16 +24,14 @@ document.getElementById("teddy-price").textContent = chosenTeddy.price*0.01 + " 
 }
 
 //ajout du produit au localstorage en cliquant sur le panier dans la carte
-
 function addProduct(produit) {
     if (tableauProduits[idTeddy].quantite >= 1) {
         tableauProduits[idTeddy].quantite ++;
     } else {
         tableauProduits[idTeddy].quantite = 1;
     }
-    //localStorage.clear();
-    localStorage.setItem('tableauStorage', JSON.stringify(tableauProduits));
-    alert(produit + ' a été ajouté à votre panier');
+localStorage.setItem('tableauStorage', JSON.stringify(tableauProduits));
+alert(produit + ' a été ajouté à votre panier');
 }
 let addToCart = document.getElementById('add-cart');
 addToCart.addEventListener('click', function(){addProduct(product.textContent)});

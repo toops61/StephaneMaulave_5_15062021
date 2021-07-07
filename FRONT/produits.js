@@ -30,17 +30,44 @@ setTimeout(function () {
 setTimeout(function() {
     for (let i = 0; i < tableauProduits.length; i++) {
         let productSection = document.getElementById('productsSection');
-        productSection.innerHTML += '<a href="./produit.html?id=' + tableauProduits[i]._id + '" id="lien-product' + i + '"><div class="products__card"><div class="products__card__image" tabindex="0" id="teddy-image' + i + '"></div><div class="products__card__description"><h2 tabindex="0" id="teddy-name' + i + '"></h2><div class="plus"><div></div></div><div class="cart-prix"><div class="add-cartIndex"><div class=add-cartIndex__icon></div></div><p tabindex="0" id="teddy-price' + i + '"></p></div></div></div></a>';
+        productSection.innerHTML += '<div class="products__card"><div class="products__card__image" tabindex="0" id="teddy-image' + i + '"></div><div class="products__card__description"><h2 tabindex="0" id="teddy-name' + i + '"></h2><a href="./produit.html?id=' + tableauProduits[i]._id + '" id="lien-product' + i + '"><div class="plus"><div></div></div></a><div class="cart-prix"><div class="add-cartIndex"><div class=add-cartIndex__icon id="add-to-cart' + i + '"></div></div><p tabindex="0" id="teddy-price' + i + '"></p></div></div></div>';
         document.getElementById("teddy-image" + i).innerHTML = '<img src="' + tableauProduits[i].imageUrl + '"alt=ours en peluche"></img>';
         document.getElementById("teddy-name" + i).textContent = tableauProduits[i].name;
         document.getElementById("teddy-price" + i).textContent = tableauProduits[i].price*0.01 + " €";
     }
 },4000);
 
+
 setTimeout(function() {
     if (localStorage.length === 0) {
-        localStorage.setItem('tableauStorage', JSON.stringify(tableauProduits));
+        storeToLocal();
     } else {
-        tableauProduits = JSON.parse(localStorage.getItem('tableauStorage'));
+        recupLocal();
     }
 }, 4000);
+
+setTimeout(function() {
+    for (let ind = 0; ind < tableauProduits.length; ind++) {
+            let addToCart = document.getElementById('add-to-cart' + ind);
+            addToCart.addEventListener('click', function(){addProduct(ind)});
+    }
+}, 4000);
+
+//fonction update du local storage et du tableau des produits
+function storeToLocal() {
+    localStorage.setItem('tableauStorage', JSON.stringify(tableauProduits)); 
+}
+function recupLocal() {
+    tableauProduits = JSON.parse(localStorage.getItem('tableauStorage'));
+}
+
+//fonction pour l'ajout du produit au panier
+function addProduct(index) {
+    if (tableauProduits[index].quantite >= 1) {
+        tableauProduits[index].quantite ++;
+    } else {
+        tableauProduits[index].quantite = 1;
+    }
+        storeToLocal();
+    alert(tableauProduits[index].name + ' a été ajouté à votre panier');
+    }

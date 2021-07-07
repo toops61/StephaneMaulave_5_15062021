@@ -12,10 +12,6 @@
     width: 100%;
     border-bottom: solid $third-color 2px;
     padding-bottom: 2rem;
-    a {
-        display: block;
-        margin: 0;
-    }
     &__card {
         @include product-cards;
         &__image {
@@ -64,6 +60,10 @@
             }
         }
     }
+    a {
+        width: 2rem;
+        margin: 0 auto;
+    }
 }
 
 .plus {
@@ -77,18 +77,56 @@
                 transform: none;
             }
         }
-        &::before {
+        &::after {
             @include icon('\f055', 2rem);
             color: $fifth-color;
+        }
+        &::before {
+            @include textBulle("En savoir plus", .6rem);
+            top: -1.3rem;
+            right: -1.4rem;
+            @include tablette-version {
+                display: none;
+            }
+        }
+        &:hover::before {
+            opacity: .8;
         }
     }
 }
 
 .add-cartIndex {
-    @include addCart(1.2rem, 6rem);
+    position: absolute;
+    top: 1rem;
+    right: 5rem;
     @include tablette-version {
         right: 4rem;
-    }@include mobile-version {
-        @include position (1rem, 2.6rem);
+    }
+    @include mobile-version {
+        right: 3rem;
+    }
+    @include flexCenter;
+    &__icon {
+        &::after {
+            @include icon('\f291', 3rem);
+            color: $fifth-color;
+            @include tablette-version {
+                font-size: 2rem;
+            }
+            @include mobile-version {
+                font-size: 1.2rem;
+            }
+        }
+        &::before {
+                @include textBulle;
+                top: -3rem; 
+                right: -5.8rem;
+                @include tablette-version {
+                    display: none;
+                }
+        }
+        &:hover::before {
+            opacity: .8;
+        }
     }
 }

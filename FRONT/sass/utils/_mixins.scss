@@ -129,7 +129,7 @@
     background-color: white;
     border: solid $fourth-color;
     border-radius: 30px;
-    @include btn-shadow;
+    box-shadow: 2px 2px 14px black;
     @media screen and (max-width:$breakpoint-ipad) {
         width: 23rem;
         height: 14rem;
@@ -141,45 +141,21 @@
     }
 }
 
-@mixin addCart($top: 2rem, $right: 2rem) {
+@mixin textBulle ($content: "ajouter au panier", $font-size: 1.2rem) {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.2s ease-in-out;
+    font-family: sans-serif !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    text-shadow: none !important;
+    font-size: $font-size !important;
+    background: rgba(33,37,41,0.9);
+    border-radius: 20px;
+    color: #fff;
+    content: $content;
+    padding: .5em 1em;
     position: absolute;
-    top: $top;
-    right: $right;
-    @include mobile-version {
-        @include position(.5rem, 1.6rem);
-    }
-    @include flexCenter;
-    &__icon {
-        &::after {
-            @include icon('\f291', 2.2rem);
-            @include tablette-version {
-                font-size: 1.8rem;
-            }
-        }
-        &::before {
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.2s ease-in-out;
-            font-family: sans-serif !important;
-            font-weight: normal !important;
-            font-style: normal !important;
-            text-shadow: none !important;
-            font-size: .8rem !important;
-            background: rgba(33,37,41,0.9);
-            border-radius: 4px;
-            color: #fff;
-            content: "ajouter au panier";
-            padding: .5em 1em;
-            position: absolute;
-            @include position(-2rem, -2rem);
-            white-space: nowrap;
-            z-index: 10;
-            @include tablette-version {
-                display: none;
-            }
-        }
-        &:hover::before {
-            opacity: .8;
-        }
-    }
+    white-space: nowrap;
+    z-index: 10;
 }
