@@ -1,0 +1,32 @@
+.color-nav {
+    position: relative;
+    h3 {
+        font-size: 1.4rem;
+        margin-bottom: 0;
+    }
+    ul {
+        position: absolute;
+        z-index: 99;
+        margin-top: 0;
+        width: 9rem;
+        background-color: $primary-color;
+        &::before {
+            margin-left: 1rem;
+            @include icon;
+        }
+        &:hover {
+            border: solid $third-color 2px;
+            & > li {
+                display: flex;
+            }
+        }
+        li {
+            display: none;
+            padding: .2rem 1rem;
+            &:hover {
+                color: $primary-color;
+                background-color: $fifth-color;
+            }
+        }
+    }
+}

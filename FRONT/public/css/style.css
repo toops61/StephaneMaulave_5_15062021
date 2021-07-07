@@ -147,6 +147,7 @@ p {
 
 li {
   list-style-type: none;
+  font-size: 1.3rem;
 }
 
 .footer-container {
@@ -430,6 +431,47 @@ li {
   animation: fadeOut 1s forwards;
 }
 
+.color-nav {
+  position: relative;
+}
+.color-nav h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0;
+}
+.color-nav ul {
+  position: absolute;
+  z-index: 99;
+  margin-top: 0;
+  width: 9rem;
+  background-color: #ECECEC;
+}
+.color-nav ul::before {
+  margin-left: 1rem;
+  content: "";
+  font-family: "Font Awesome 5";
+  font-weight: 900;
+  font-size: 1.4em;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  color: black;
+}
+.color-nav ul:hover {
+  border: solid #E38D02 2px;
+}
+.color-nav ul:hover > li {
+  display: flex;
+}
+.color-nav ul li {
+  display: none;
+  padding: 0.2rem 1rem;
+}
+.color-nav ul li:hover {
+  color: #ECECEC;
+  background-color: #925100;
+}
+
 .main-section {
   width: 90%;
   margin: 0 auto;
@@ -541,7 +583,7 @@ li {
 .plus div:hover {
   transform: scale(2);
 }
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 400px) {
   .plus div:hover {
     transform: none;
   }
@@ -578,7 +620,7 @@ li {
   top: -1.3rem;
   right: -1.4rem;
 }
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 400px) {
   .plus div::before {
     display: none;
   }
@@ -647,7 +689,7 @@ li {
   top: -3rem;
   right: -5.8rem;
 }
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 400px) {
   .add-cartIndex__icon::before {
     display: none;
   }
@@ -716,43 +758,21 @@ li {
     font-size: 1.2rem;
   }
 }
-.product__card__description p:nth-child(4) {
+.product__card__description p:nth-child(3) {
   text-align: right;
-}
-.product__card__description ul {
-  margin-top: 0;
-}
-.product__card__description ul::before {
-  margin-left: 1rem;
-  content: "";
-  font-family: "Font Awesome 5";
-  font-weight: 900;
-  font-size: 1.4em;
-  font-style: normal;
-  font-variant: normal;
-  text-rendering: auto;
-  line-height: 1;
-  color: black;
-}
-.product__card__description ul > li {
-  margin-left: 1rem;
-  display: none;
-}
-.product__card__description ul:active > li {
-  display: flex;
 }
 
 .add-cart {
   position: absolute;
-  top: 4rem;
-  right: 4rem;
+  top: 3%;
+  right: 6%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 @media screen and (max-width: 400px) {
   .add-cart {
-    top: 29rem;
+    top: 98%;
     right: 2rem;
   }
 }
@@ -793,7 +813,7 @@ li {
   top: -3rem;
   right: -3rem;
 }
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 400px) {
   .add-cart__icon::before {
     display: none;
   }

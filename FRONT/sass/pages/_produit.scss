@@ -40,32 +40,19 @@
                 @include mobile-version {
                     font-size: 1.2rem;
                 }
-                &:nth-child(4) {
+                &:nth-child(3) {
                     text-align: right;
-                }
-            }
-            ul {
-                margin-top: 0;
-                &::before {
-                    margin-left: 1rem;
-                    @include icon;
-                }
-                & > li {
-                    margin-left: 1rem;
-                    display: none;
-                }
-                &:active > li {
-                    display: flex;
                 }
             }
         }
     }
 }
+
 .add-cart {
     position: absolute;
-    @include position(4rem, 4rem);
+    @include position(3%, 6%);
     @include mobile-version {
-        @include position(29rem, 2rem);
+        @include position(98%, 2rem);
     }
     @include flexCenter;
     &__icon {
@@ -80,7 +67,7 @@
             @include textBulle;
             top: -3rem;
             right: -3rem;
-            @include tablette-version {
+            @include mobile-version {
                 display: none;
             }
         }

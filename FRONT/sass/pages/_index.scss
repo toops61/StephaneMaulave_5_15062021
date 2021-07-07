@@ -73,7 +73,7 @@
         transition: transform 400ms ease-in-out;
         &:hover {
             transform: scale(2);
-            @include tablette-version {
+            @include mobile-version {
                 transform: none;
             }
         }
@@ -85,7 +85,7 @@
             @include textBulle("En savoir plus", .6rem);
             top: -1.3rem;
             right: -1.4rem;
-            @include tablette-version {
+            @include mobile-version {
                 display: none;
             }
         }
@@ -121,7 +121,7 @@
                 @include textBulle;
                 top: -3rem; 
                 right: -5.8rem;
-                @include tablette-version {
+                @include mobile-version {
                     display: none;
                 }
         }
