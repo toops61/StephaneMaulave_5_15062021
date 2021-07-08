@@ -472,15 +472,12 @@ li {
   background-color: #925100;
 }
 
-form div:invalid {
-  border: solid red 1px;
-}
-form div:valid {
-  border: solid green;
-}
-
 .invalid {
   border: solid red;
+}
+
+.valid {
+  border: solid green;
 }
 
 .main-section {

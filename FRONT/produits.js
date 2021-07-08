@@ -21,7 +21,7 @@ window.addEventListener('load', function(){
     loader.className += " hidden";
 }) */
 
-//loader de 4 secondes
+//loader de 3,5 secondes
 const loader = document.querySelector('div.loader');
 setTimeout(function () {
     loader.className += " hidden";

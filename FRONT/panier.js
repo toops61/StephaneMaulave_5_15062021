@@ -63,32 +63,24 @@ setTimeout(function() {
             updatePrice();
         }
     }
-}, 2000);
+}, 1000);
 
 //tableau des produits de la commande
 let totalArray = [];
-let quantite = 1;
+
 function createArray() {
+    let quantite = 1;
     for (let i = 0; i < panierArray.length; i++) {
         quantite = document.getElementById('quantite-produit' + i).value;
         let finalProduct = {
             name: panierArray[i].name,
-            totalProduct: panierArray[i].prix * .01 * quantite
+            quantite: quantite,
+            totalProduct: panierArray[i].price * .01 * quantite
         }
         if (quantite > 0){
         totalArray.push(finalProduct);
         }
     }
-}
-
-//capture des champs du formaulaire
-let panierContact = {};
-function takeInputs() {
-    panierContact.firstName = firstName.value;
-    panierContact.lastName = lastName.value;
-    panierContact.address = address.value;
-    panierContact.city = city.value;
-    panierContact.email = email.value;
 }
 
 //formulaire vérification des champs
@@ -106,11 +98,14 @@ let regexMail = /^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]+([_|\.|-]­{1}[a-z0-
 //regex exclu
 function rejectInput(inputName, regex) {
     if (regex.exec(inputName.value) != null) {
+        inputName.classList.remove('valid');
         inputName.classList.add('invalid');
+        inputName.valid = false;
     }
     else {
         inputName.classList.remove('invalid');
-        panierContact.champ = inputName.value;
+        inputName.classList.add('valid');
+        inputName.valid = true;
     }
 }
 firstName.addEventListener('input', function(){
@@ -129,38 +124,55 @@ city.addEventListener('input', function(){
 //Regex attendu
 function expectInput(inputName, regex) {
     if (regex.exec(inputName.value) == null) {
+        inputName.classList.remove('valid');
         inputName.classList.add('invalid');
+        inputName.valid = false;
     }
     else {
         inputName.classList.remove('invalid');
-        panierContact.champ = inputName.value;
+        inputName.classList.add('valid');
+        inputName.valid = true;
     }
 }
 email.addEventListener('input', function(){
     expectInput(email, regexMail);
 });
 
-//validation de la commande
+//capture des champs du formulaire
+let panierContact = {};
+function takeInputs() {
+    panierContact.nom = firstName.value;
+    panierContact.prenom = lastName.value;
+    panierContact.adresse = address.value;
+    panierContact.ville = city.value;
+    panierContact.email = email.value;
+}
+
+//crée un tableau de booléens true/false correspondant à chaque champ
+function capturerChamps() {
+    validInputArray = [];
+    for (let index = 0; index < 5; index++) {
+       validInputArray.push(inputsArray[index].valid);
+    }
+}
+
+//déclenche la vérification des champs lors du click sur le bouton soumettre
 let validButton = document.querySelector('form div#submit-btn input');
-/* validButton.addEventListener("click", function(event) {
+let isTrue = (currentValue) => currentValue === true;
+function valider() {
+        capturerChamps();
+        if (validInputArray.every(isTrue)) {
+            takeInputs();
+            createArray();
+            localStorage.clear();
+            localStorage.setItem('panierTableau', JSON.stringify(totalArray));
+            localStorage.setItem('objetContact', JSON.stringify(panierContact));
+            location.href = './pageConfirm.html';
+        } else {
+            alert('Impossible, vos champs ne sont pas correctement remplis');
+        }
+}
+validButton.addEventListener('click', valider);
+validButton.addEventListener('click', function(event) {
     event.preventDefault();
-}, false); */
-validButton.addEventListener('click', createArray);
-validButton.addEventListener('click', takeInputs);
-
-//API fetch requete POST pour formulaire et array de produits
-//const url = 'http://localhost:3000/api/teddies/order';
-
-/* var request = new Request(url, {
-    method: 'POST',
-    body: panierContact,
-    headers: new Headers()
-});
-
-fetch(request)
-.then(function() {
-    console.log('ok');
-})
-.catch(function() {
-    console.log('raté !');
-}) */
+  }, false);
