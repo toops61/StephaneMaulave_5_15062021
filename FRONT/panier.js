@@ -70,9 +70,11 @@ let totalArray = [];
 
 function createArray() {
     for (let i = 0; i < panierArray.length; i++) {
-        quantite = document.getElementById('quantite-produit' + i).value;
+        quantite = Number(document.getElementById('quantite-produit' + i).value);
         if (quantite > 0){
-        totalArray.push(panierArray[i]._id);
+            for (let ind = 0; ind < quantite; ind++) {
+                totalArray.push(panierArray[i]._id);            
+            }
         }
     }
 }

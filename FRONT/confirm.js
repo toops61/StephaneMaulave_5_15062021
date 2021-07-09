@@ -17,7 +17,7 @@ setTimeout(function () {
 }, 3500)
 
 //affichage du nom
-document.querySelector("section h1").textContent += contact.lastName;
+document.querySelector("section h1").textContent += contact.firstName;
 //recap commande
 let quantiteProduits = 0;
 for (let index = 0; index < tableauProduits.length - 1; index++) {
@@ -34,12 +34,12 @@ total.textContent += totalPanier + ' euros';
 //API fetch requete POST pour formulaire et array de produits
 const url = 'http://localhost:3000/api/teddies/order';
 let requestObject = {};
-requestObject.contact = JSON.stringify(contact);
-requestObject.products = JSON.stringify(products);
+requestObject.contact = contact;
+requestObject.products = products;
 
 let request = (url, {
     method: 'POST',
-    body: requestObject.contact,
+    body: (contact, JSON.stringify(products)),
     headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -47,9 +47,9 @@ let request = (url, {
 });
 
 fetch(request)
-.then(function(reponse) {
-    console.log(reponse);
-    console.log(reponse.url);
+.then(function(rep) {
+    console.log(rep);
+    console.log(rep.url);
 })
 .catch(function(error) {
     console.log('raté !' + error);
