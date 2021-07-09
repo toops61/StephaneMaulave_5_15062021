@@ -15,7 +15,7 @@ for (let i = 0; i < tableauProduits.length; i++) {
 for (let ind = 0; ind < panierArray.length; ind++) {
     let produitPrice = panierArray[ind].price * 0.01 * panierArray[ind].quantite;
     let panierSection = document.getElementById('panier-section');
-    panierSection.innerHTML += '<div class="panier-resume__article"><div class="panier-resume__article__image" tabindex="0" id="article-image' + ind + '"></div><div class="panier-resume__article__details"><p tabindex="0" class="panier-resume__name">article : Ours en peluche ' + panierArray[ind].name + '</p><label for="quantite-produit' + ind + '" class="panier-resume__quantite">quantité : </label><input type="number" min="1" max="99" value=' + panierArray[ind].quantite + ' id="quantite-produit' + ind + '"><div tabindex="0" class="panier-resume__supprimer"><p>supprimer</p></div></div><p tabindex="0" class="panier-resume__price" id="produit-price' + ind + '">' + produitPrice + ' €</p></div>';
+    panierSection.innerHTML += '<div class="panier-resume__article"><div class="panier-resume__article__image" tabindex="0" id="article-image' + ind + '"></div><div class="panier-resume__article__details"><p tabindex="0" class="panier-resume__name">article : Ours en peluche ' + panierArray[ind].name + '</p><label for="quantite-produit' + ind + '" class="panier-resume__quantite">quantité : </label><input type="number" min="1" max="99" maxlength="2" value=' + panierArray[ind].quantite + ' id="quantite-produit' + ind + '"><div tabindex="0" class="panier-resume__supprimer"><p>supprimer</p></div></div><p tabindex="0" class="panier-resume__price" id="produit-price' + ind + '">' + produitPrice + ' €</p></div>';
     document.getElementById("article-image" + ind).innerHTML = '<img src="' + panierArray[ind].imageUrl + '"alt=ours en peluche"></img>';
     totalPanier += produitPrice;
 }
@@ -34,8 +34,8 @@ function updatePrice() {
     for (let index = 0; index < panierArray.length; index++) {
         let quantite = Number(document.getElementById('quantite-produit' + index).value);
         if (quantite > 99) {
-            quantite = 99;
-            document.getElementById('quantite-produit' + index).value = 99;
+            quantite = 1;
+            document.getElementById('quantite-produit' + index).value = 1;
             alert('Vous ne pouvez sélectionner plus de 99 ours');
         } else if (quantite < 0) {
             quantite = 1;
@@ -102,7 +102,7 @@ let regexMail = /^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]+([_|\.|-]­{1}[a-z0-
  
 //regex exclu
 function rejectInput(inputName, regex) {
-    if (regex.exec(inputName.value) != null) {
+    if (regex.exec(inputName.value) != null || inputName.value.length < 2) {
         inputName.classList.remove('valid');
         inputName.classList.add('invalid');
         inputName.valid = false;
