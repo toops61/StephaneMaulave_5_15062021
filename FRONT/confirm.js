@@ -37,20 +37,30 @@ let requestObject = {};
 requestObject.contact = contact;
 requestObject.products = products;
 
-let request = (url, {
+let request = {
     method: 'POST',
-    body: (contact, JSON.stringify(products)),
+    body: JSON.stringify(requestObject),
     headers: {
-        'Accept': 'application/json',
         'Content-Type': 'application/json'
     }
-});
+};
 
-fetch(request)
+fetch(url, request)
 .then(function(rep) {
     console.log(rep);
-    console.log(rep.url);
+    let resultat = rep.json();
+    return resultat;
+})
+.then(function (value) {
+    orderId = value.orderId;
+    displayId();
 })
 .catch(function(error) {
-    console.log('raté !' + error);
+    console.log('erreur !' + error);
 })
+
+//fonction pour ajouter l'Id
+let identifiant = document.getElementById('identifiant');
+function displayId() {
+    identifiant.innerHTML += '<br><p>' + orderId + '</p>';
+}
