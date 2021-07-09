@@ -33,6 +33,15 @@ function updatePrice() {
     totalPanier = 0;
     for (let index = 0; index < panierArray.length; index++) {
         let quantite = Number(document.getElementById('quantite-produit' + index).value);
+        if (quantite > 99) {
+            quantite = 99;
+            document.getElementById('quantite-produit' + index).value = 99;
+            alert('Vous ne pouvez sélectionner plus de 99 ours');
+        } else if (quantite < 0) {
+            quantite = 1;
+            document.getElementById('quantite-produit' + index).value = 1;
+            alert('Vous ne pouvez sélectionner moins d\'un ours, mais vous pouvez le supprimer');
+        }
         let prix = document.getElementById('produit-price' + index);
         let price = panierArray[index].price * .01;
         totalPanier += price;
