@@ -32,7 +32,7 @@ if (totalPanier === 0) {
 function updatePrice() {
     totalPanier = 0;
     for (let index = 0; index < panierArray.length; index++) {
-        let quantite = document.getElementById('quantite-produit' + index).value;
+        let quantite = Number(document.getElementById('quantite-produit' + index).value);
         let prix = document.getElementById('produit-price' + index);
         let price = panierArray[index].price * .01;
         totalPanier += price;
@@ -69,16 +69,10 @@ setTimeout(function() {
 let totalArray = [];
 
 function createArray() {
-    let quantite = 1;
     for (let i = 0; i < panierArray.length; i++) {
         quantite = document.getElementById('quantite-produit' + i).value;
-        let finalProduct = {
-            name: panierArray[i].name,
-            quantite: quantite,
-            totalProduct: panierArray[i].price * .01 * quantite
-        }
         if (quantite > 0){
-        totalArray.push(finalProduct);
+        totalArray.push(panierArray[i]._id);
         }
     }
 }
@@ -91,8 +85,8 @@ let address = inputsArray[2];
 let city = inputsArray[3];
 let email = inputsArray[4];
 
-let regexText = /[0-9/=;`$&"()§!@≠…∞€ø«¡¶{}“]/;
-let regexAdress = /[/=;`$&"()§!@≠…∞€ø«¡¶{}“]/;
+let regexText = /[0-9/=;`$&"()§!@≠…∞€ø«¡¶{}“º%µ¬®†°π‡∂ﬁƒ¬‹≈©◊ß£*#ë—<>≤≥]/;
+let regexAdress = /[/=;`$&"()§!@≠…∞€ø«¡¶{}“ºµ¬%®†π‡∂ﬁƒ¬‹≈©◊ß£*#ë—<>≤≥]/;
 let regexMail = /^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]+([_|\.|-]­{1}[a-z0-9]+)*[\.]{1}[a-z]{2,6}$/;
  
 //regex exclu
@@ -139,13 +133,13 @@ email.addEventListener('input', function(){
 });
 
 //capture des champs du formulaire
-let panierContact = {};
+let contact = {};
 function takeInputs() {
-    panierContact.nom = firstName.value;
-    panierContact.prenom = lastName.value;
-    panierContact.adresse = address.value;
-    panierContact.ville = city.value;
-    panierContact.email = email.value;
+    contact.firstName = firstName.value;
+    contact.lastName = lastName.value;
+    contact.address = address.value;
+    contact.city = city.value;
+    contact.email = email.value;
 }
 
 //crée un tableau de booléens true/false correspondant à chaque champ
@@ -164,9 +158,10 @@ function valider() {
         if (validInputArray.every(isTrue)) {
             takeInputs();
             createArray();
-            localStorage.clear();
-            localStorage.setItem('panierTableau', JSON.stringify(totalArray));
-            localStorage.setItem('objetContact', JSON.stringify(panierContact));
+            tableauProduits.push(totalPanier);
+            localStorage.setItem('tableauStorage', JSON.stringify(tableauProduits));
+            localStorage.setItem('contact', JSON.stringify(contact));
+            localStorage.setItem('products', JSON.stringify(totalArray));
             location.href = './pageConfirm.html';
         } else {
             alert('Impossible, vos champs ne sont pas correctement remplis');
