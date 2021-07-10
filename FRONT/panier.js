@@ -166,7 +166,7 @@ let validButton = document.querySelector('form div#submit-btn input');
 let isTrue = (currentValue) => currentValue === true;
 function valider() {
         capturerChamps();
-        if (validInputArray.every(isTrue)) {
+        if (validInputArray.every(isTrue) && panierArray.length > 0) {
             takeInputs();
             createArray();
             tableauProduits.push(totalPanier);
@@ -174,6 +174,8 @@ function valider() {
             localStorage.setItem('contact', JSON.stringify(contact));
             localStorage.setItem('products', JSON.stringify(totalArray));
             location.href = './pageConfirm.html';
+        } else if (panierArray.length === 0) {
+            alert('Votre panier est vide');
         } else {
             alert('Impossible, vos champs ne sont pas correctement remplis');
         }
