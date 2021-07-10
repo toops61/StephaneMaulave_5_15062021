@@ -592,6 +592,10 @@ main h1, footer h2 {
     width: 16rem;
     height: 10rem;
   }
+  .products__card h2, .products__card p {
+    text-shadow: none;
+    font-family: "raleway bold";
+  }
 }
 .products__card__image {
   width: 50%;
@@ -628,11 +632,11 @@ main h1, footer h2 {
   margin: 0;
 }
 .products__card__description h2 {
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 @media screen and (max-width: 769px) {
   .products__card__description h2 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     margin-top: 0.5rem;
   }
 }
@@ -645,6 +649,17 @@ main h1, footer h2 {
 .products__card__description p {
   text-align: right;
   bottom: 1rem;
+  font-size: 1.8rem;
+}
+@media screen and (max-width: 769px) {
+  .products__card__description p {
+    font-size: 1.4rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  .products__card__description p {
+    font-size: 1.2rem;
+  }
 }
 .products a {
   width: 2rem;
@@ -721,6 +736,7 @@ main h1, footer h2 {
 }
 @media screen and (max-width: 400px) {
   .add-cartIndex {
+    top: 1.4rem;
     right: 3rem;
   }
 }
@@ -742,7 +758,7 @@ main h1, footer h2 {
 }
 @media screen and (max-width: 400px) {
   .add-cartIndex__icon::after {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 }
 .add-cartIndex__icon::before {

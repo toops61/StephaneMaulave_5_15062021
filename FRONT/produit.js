@@ -14,13 +14,25 @@ for (let i = 0; i < tableauProduits.length; i++) {
 document.getElementById("product-image").innerHTML = '<img src="' + chosenTeddy.imageUrl + '"alt=ours en peluche"></img>';
 document.getElementById("product-name").textContent = chosenTeddy.name;
 document.getElementById("teddy-description").textContent = chosenTeddy.description;
+document.getElementById("teddy-price").textContent = chosenTeddy.price*0.01 + " €";
+
+//récupération des couleurs
 let colorNav = document.getElementById("teddy-color");
 let arrayColors = chosenTeddy.colors;
 for (let ind = 0; ind < arrayColors.length; ind++) {
-    let objectColor = document.createElement("li");
-    objectColor.innerHTML = arrayColors[ind];
-    colorNav.appendChild(objectColor);
-document.getElementById("teddy-price").textContent = chosenTeddy.price*0.01 + " €";
+    colorNav.innerHTML += '<li tabindex="0" id="couleurTeddy' + ind + '">' + arrayColors[ind] + '</li>';
+}
+
+//recuperation de la couleur choisie par l'utilisateur
+function addCouleur(index) {
+    chosenTeddy.couleur = arrayColors[index];
+    alert('Vous avez sélectionné la couleur ' + arrayColors[index]);
+}
+for (let i = 0; i < arrayColors.length; i++) {
+    let couleurEl = document.getElementById('couleurTeddy' + i);
+    couleurEl.addEventListener('click', function () {
+        addCouleur(i);
+    });
 }
 
 //ajout du produit au localstorage en cliquant sur le panier dans la carte

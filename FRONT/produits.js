@@ -30,7 +30,7 @@ setTimeout(function () {
 setTimeout(function() {
     for (let i = 0; i < tableauProduits.length; i++) {
         let productSection = document.getElementById('productsSection');
-        productSection.innerHTML += '<div class="products__card"><div class="products__card__image" tabindex="0" id="teddy-image' + i + '"></div><div class="products__card__description"><h2 tabindex="0" id="teddy-name' + i + '"></h2><a href="./produit.html?id=' + tableauProduits[i]._id + '" id="lien-product' + i + '"><div class="plus"><div></div></div></a><div class="cart-prix"><div class="add-cartIndex"><div class=add-cartIndex__icon id="add-to-cart' + i + '"></div></div><p tabindex="0" id="teddy-price' + i + '"></p></div></div></div>';
+        productSection.innerHTML += '<div class="products__card"><div class="products__card__image" tabindex="0" id="teddy-image' + i + '"></div><div class="products__card__description"><h2 tabindex="0" id="teddy-name' + i + '"></h2><a href="./produit.html?id=' + tableauProduits[i]._id + '" id="lien-product' + i + '"><div class="plus"><div></div></div></a><div class="cart-prix"><div class="add-cartIndex" tabindex="0"><div class=add-cartIndex__icon id="add-to-cart' + i + '"></div></div><p tabindex="0" id="teddy-price' + i + '"></p></div></div></div>';
         document.getElementById("teddy-image" + i).innerHTML = '<img src="' + tableauProduits[i].imageUrl + '"alt=ours en peluche"></img>';
         document.getElementById("teddy-name" + i).textContent = tableauProduits[i].name;
         document.getElementById("teddy-price" + i).textContent = tableauProduits[i].price*0.01 + " €";

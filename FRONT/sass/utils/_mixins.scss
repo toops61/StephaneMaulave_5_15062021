@@ -144,6 +144,10 @@
     @media screen and (max-width:$breakpoint-mobile) {
         width: 16rem;
         height: 10rem;
+        h2, p {
+            text-shadow: none;
+            font-family: 'raleway bold';
+        }
     }
 }
 
