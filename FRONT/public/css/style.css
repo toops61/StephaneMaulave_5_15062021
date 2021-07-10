@@ -47,7 +47,7 @@ body {
   min-width: 320px;
   margin: 0 auto;
   padding: 0;
-  background-color: #ECECEC;
+  background-color: #bb491c;
 }
 
 main {
@@ -150,6 +150,11 @@ li {
   font-size: 1.3rem;
 }
 
+main h1, footer h2 {
+  color: white;
+  text-shadow: 2px 2px 4px black;
+}
+
 .footer-container {
   display: flex;
   flex-direction: column;
@@ -247,7 +252,7 @@ li {
 }
 
 .header {
-  width: 80%;
+  width: 86%;
   margin: 1rem auto;
   display: flex;
   justify-content: space-between;
@@ -260,11 +265,18 @@ li {
 }
 .header__logo {
   width: 30%;
+  background-color: #ECECEC;
+  border: solid #851d19;
+  border-radius: 30px;
+  box-shadow: 2px 2px 14px black;
 }
 @media screen and (max-width: 769px) {
   .header__logo {
     width: 60%;
   }
+}
+.header__logo div {
+  margin: 0.5rem 1rem;
 }
 .header__logo img {
   width: 100%;
@@ -272,11 +284,12 @@ li {
   object-fit: cover;
 }
 .header__panier {
-  width: 8rem;
-  height: 3rem;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  width: 12rem;
+  height: 4rem;
+  border: solid #851d19;
+  background-color: #ECECEC;
+  border-radius: 40px;
+  box-shadow: 2px 2px 14px black;
 }
 @media screen and (max-width: 400px) {
   .header__panier {
@@ -284,17 +297,24 @@ li {
     height: 2rem;
   }
 }
-.header__panier h2::before {
+.header__panier a {
+  width: 80%;
+  height: 100%;
+  color: #851d19;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+}
+.header__panier__logo div::before {
   content: "";
   font-family: "Font Awesome 5";
   font-weight: 900;
-  font-size: 1.2em;
+  font-size: 2.2rem;
   font-style: normal;
   font-variant: normal;
   text-rendering: auto;
   line-height: 1;
-  color: black;
-  margin-right: 0.6rem;
 }
 
 .retour-accueil {
@@ -313,7 +333,6 @@ li {
   font-variant: normal;
   text-rendering: auto;
   line-height: 1;
-  color: black;
   margin-right: 0.5rem;
 }
 
@@ -441,9 +460,9 @@ li {
 .color-nav ul {
   position: absolute;
   z-index: 99;
-  margin-top: 0;
+  margin-top: 1rem;
   width: 9rem;
-  background-color: #ECECEC;
+  background-color: #482a05;
 }
 .color-nav ul::before {
   margin-left: 1rem;
@@ -455,9 +474,9 @@ li {
   font-variant: normal;
   text-rendering: auto;
   line-height: 1;
-  color: black;
 }
 .color-nav ul:hover {
+  box-shadow: 2px 2px 14px black;
   border: solid #E38D02 2px;
 }
 .color-nav ul:hover > li {
@@ -465,11 +484,11 @@ li {
 }
 .color-nav ul li {
   display: none;
-  padding: 0.2rem 1rem;
+  padding: 0.2rem 1rem 0.5rem;
 }
 .color-nav ul li:hover {
   color: #ECECEC;
-  background-color: #925100;
+  background-color: #E38D02;
 }
 
 .invalid {
@@ -506,9 +525,13 @@ li {
   overflow: hidden;
   margin: 2rem auto;
   background-color: white;
-  border: solid #bb491c;
+  color: #851d19;
+  border: solid #851d19;
   border-radius: 30px;
   box-shadow: 2px 2px 14px black;
+}
+.products__card h2, .products__card p {
+  text-shadow: 2px 2px 4px #482a05;
 }
 @media screen and (max-width: 769px) {
   .products__card {
@@ -527,7 +550,7 @@ li {
   width: 50%;
   height: 80%;
   margin: 2rem;
-  border: solid #E38D02;
+  border: solid #bb491c;
   border-radius: 20px;
   overflow: hidden;
 }
@@ -583,6 +606,7 @@ li {
 
 .plus {
   margin: 0 auto;
+  color: #851d19;
 }
 .plus div {
   transform: scale(1);
@@ -605,8 +629,6 @@ li {
   font-variant: normal;
   text-rendering: auto;
   line-height: 1;
-  color: black;
-  color: #925100;
 }
 .plus div::before {
   opacity: 0;
@@ -617,7 +639,7 @@ li {
   font-style: normal !important;
   text-shadow: none !important;
   font-size: 0.6rem !important;
-  background: rgba(33, 37, 41, 0.9);
+  background: #851d19;
   border-radius: 20px;
   color: #fff;
   content: "En savoir plus";
@@ -664,8 +686,7 @@ li {
   font-variant: normal;
   text-rendering: auto;
   line-height: 1;
-  color: black;
-  color: #925100;
+  color: #851d19;
 }
 @media screen and (max-width: 769px) {
   .add-cartIndex__icon::after {
@@ -686,7 +707,7 @@ li {
   font-style: normal !important;
   text-shadow: none !important;
   font-size: 1.2rem !important;
-  background: rgba(33, 37, 41, 0.9);
+  background: #851d19;
   border-radius: 20px;
   color: #fff;
   content: "ajouter au panier";
@@ -712,7 +733,10 @@ li {
   align-items: center;
 }
 .product__card {
+  color: white;
+  text-shadow: 2px 2px 4px black;
   position: relative;
+  background-color: #482a05;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -733,9 +757,10 @@ li {
   }
 }
 .product__card__image {
-  width: 50%;
-  border: solid #bb491c;
-  box-shadow: 2px 2px 14px black;
+  width: 32rem;
+  height: 20rem;
+  border: solid #482a05 4px;
+  box-shadow: 0 0 17px 6px #E38D02;
   border-radius: 30px;
   overflow: hidden;
   margin: 4rem auto 2rem auto;
@@ -772,8 +797,8 @@ li {
 
 .add-cart {
   position: absolute;
-  top: 3%;
-  right: 6%;
+  top: 11%;
+  right: 7%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -793,8 +818,7 @@ li {
   font-variant: normal;
   text-rendering: auto;
   line-height: 1;
-  color: black;
-  color: #925100;
+  color: #E38D02;
 }
 @media screen and (max-width: 769px) {
   .add-cart__icon::after {
@@ -810,7 +834,7 @@ li {
   font-style: normal !important;
   text-shadow: none !important;
   font-size: 1.2rem !important;
-  background: rgba(33, 37, 41, 0.9);
+  background: #851d19;
   border-radius: 20px;
   color: #fff;
   content: "ajouter au panier";
@@ -848,7 +872,7 @@ li {
   width: 90%;
   display: flex;
   flex-wrap: wrap;
-  border-top: solid #bb491c 1px;
+  border-top: solid #851d19 1px;
 }
 .panier-resume__article p:nth-child(3) {
   font-family: "Raleway-bold";
@@ -880,7 +904,7 @@ li {
   width: 2rem;
 }
 .panier-resume__supprimer {
-  background-color: #925100;
+  background-color: #482a05;
   border: solid black 1px;
   color: white;
   border-radius: 30px;

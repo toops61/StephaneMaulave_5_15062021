@@ -1,5 +1,5 @@
 .header {
-    width: 80%;
+    width: 86%;
     @include mobile-version {
         width: 90%;
     }
@@ -9,8 +9,15 @@
     flex-wrap: wrap;
     &__logo {
         width: 30%;
+        background-color: $primary-color;
+        @include borderFourth;
+        border-radius: 30px;
+        @include btn-shadow;
         @include tablette-version {
             width: 60%;
+        }
+        div {
+            margin: .5rem 1rem;
         }
         img {
             width: 100%;
@@ -19,18 +26,30 @@
         }
     }
     &__panier {
-        width: 8rem;
-        height: 3rem;
+        width: 12rem;
+        height: 4rem;
+        @include borderFourth;
+        background-color: $primary-color;
+        border-radius: 40px;
+        @include btn-shadow;
         @include mobile-version {
             width: 6rem;
             height: 2rem;
         }
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        h2::before {
-            @include icon($content: "\f291", $font-size: 1.2em);
-            margin-right: .6rem;
+        
+        a {
+            width: 80%;
+            height: 100%;
+            color: $fourth-color;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 0 auto;
+        }
+        &__logo {
+            div::before {
+                @include icon($content: "\f291", $font-size: 2.2rem);
+            }
         }
     }
 }

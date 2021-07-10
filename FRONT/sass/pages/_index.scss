@@ -18,7 +18,7 @@
             width: 50%;
             height: 80%;
             margin: 2rem;
-            @include borderThird;
+            @include borderSixth;
             border-radius: 20px;
             overflow: hidden;
             @include tablette-version {
@@ -68,6 +68,7 @@
 
 .plus {
     margin: 0 auto;
+    color: $fourth-color;
     div {
         transform: scale(1);
         transition: transform 400ms ease-in-out;
@@ -79,7 +80,6 @@
         }
         &::after {
             @include icon('\f055', 2rem);
-            color: $fifth-color;
         }
         &::before {
             @include textBulle("En savoir plus", .6rem);
@@ -109,7 +109,7 @@
     &__icon {
         &::after {
             @include icon('\f291', 3rem);
-            color: $fifth-color;
+            color: $fourth-color;
             @include tablette-version {
                 font-size: 2rem;
             }

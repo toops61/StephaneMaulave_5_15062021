@@ -10,7 +10,7 @@ let products = JSON.parse(localStorage.getItem("products"));
 let tableauProduits = JSON.parse(localStorage.getItem("tableauStorage"));
 let contact = JSON.parse(localStorage.getItem("contact"));
 
-//loader de 4 secondes
+//loader de 3,5 secondes
 const loader = document.querySelector('div.loader');
 setTimeout(function () {
     loader.className += " hidden";

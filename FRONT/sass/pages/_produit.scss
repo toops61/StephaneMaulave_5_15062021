@@ -1,7 +1,10 @@
 .product {
     @include flex-column;
     &__card {
+        color: white;
+        text-shadow: 2px 2px 4px black;
         position: relative;
+        background-color: $fifth-color;
         @include flex-column;
         border-radius: 40px;
         width: 90%;
@@ -15,9 +18,10 @@
             border: none;
         }
         &__image {
-            width: 50%;
-            @include borderFourth;
-            @include btn-shadow;
+            width: 32rem;
+            height: 20rem;
+            border: solid $fifth-color 4px;
+            box-shadow: 0 0 17px 6px $third-color;
             border-radius: 30px;
             overflow: hidden;
             margin: 4rem auto 2rem auto;
@@ -50,7 +54,7 @@
 
 .add-cart {
     position: absolute;
-    @include position(3%, 6%);
+    @include position(11%, 7%);
     @include mobile-version {
         @include position(98%, 2rem);
     }
@@ -58,7 +62,7 @@
     &__icon {
         &::after {
             @include icon('\f291', 4rem);
-            color: $fifth-color;
+            color: $third-color;
             @include tablette-version {
                 font-size: 3rem;
             }
