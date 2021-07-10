@@ -8,6 +8,7 @@
         @include flex-column;
         border-radius: 40px;
         width: 90%;
+        height: 40rem;
         max-width: 66rem;
         margin-bottom: 2rem;
         @include borderThird;
@@ -18,10 +19,11 @@
             border: none;
         }
         &__image {
-            width: 32rem;
-            height: 20rem;
+            width: 60%;
+            max-width: 36rem;
+            height: 50%;
             border: solid $fifth-color 4px;
-            box-shadow: 0 0 17px 6px $third-color;
+            box-shadow: 0 0 17px 6px $sixth-color;
             border-radius: 30px;
             overflow: hidden;
             margin: 4rem auto 2rem auto;
@@ -54,7 +56,10 @@
 
 .add-cart {
     position: absolute;
-    @include position(11%, 7%);
+    @include position(8%, 5%);
+    @include tablette-version {
+        @include position(4%, 5%);
+    }
     @include mobile-version {
         @include position(98%, 2rem);
     }

@@ -1,5 +1,6 @@
 .header {
     width: 86%;
+    padding-top: 1rem;
     @include mobile-version {
         width: 90%;
     }
@@ -14,7 +15,7 @@
         border-radius: 30px;
         @include btn-shadow;
         @include tablette-version {
-            width: 60%;
+            width: 50%;
         }
         div {
             margin: .5rem 1rem;
@@ -32,6 +33,10 @@
         background-color: $primary-color;
         border-radius: 40px;
         @include btn-shadow;
+        @include tablette-version {
+            width: 10rem;
+            height: 3rem;
+        }
         @include mobile-version {
             width: 6rem;
             height: 2rem;
@@ -55,13 +60,19 @@
 }
 
 .retour-accueil {
-    width: 8rem;
-    height: 3rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    h2::before {
+    width: 12rem;
+    height: 4rem;
+    @include flexCenter;
+    @include borderFourth;
+    background-color: $primary-color;
+    border-radius: 40px;
+    @include btn-shadow;
+    @include tablette-version {
+        width: 10rem;
+        height: 3rem;
+    }
+    &__arrow div::before {
         @include icon("\f04a", 1.5rem);
-        margin-right: .5rem;
+        margin-right: .8rem;
     }
 }
