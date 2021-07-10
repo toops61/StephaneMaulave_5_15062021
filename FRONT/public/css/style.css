@@ -276,6 +276,11 @@ main h1, footer h2 {
     width: 50%;
   }
 }
+@media screen and (max-width: 400px) {
+  .header__logo {
+    width: 60%;
+  }
+}
 .header__logo div {
   margin: 0.5rem 1rem;
 }
@@ -301,7 +306,10 @@ main h1, footer h2 {
 @media screen and (max-width: 400px) {
   .header__panier {
     width: 6rem;
-    height: 2rem;
+    height: 6rem;
+    box-shadow: none;
+    background-color: #bb491c;
+    border: none;
   }
 }
 .header__panier a {
@@ -313,6 +321,11 @@ main h1, footer h2 {
   align-items: center;
   margin: 0 auto;
 }
+@media screen and (max-width: 400px) {
+  .header__panier a h2 {
+    display: none;
+  }
+}
 .header__panier__logo div::before {
   content: "";
   font-family: "Font Awesome 5";
@@ -322,6 +335,12 @@ main h1, footer h2 {
   font-variant: normal;
   text-rendering: auto;
   line-height: 1;
+}
+@media screen and (max-width: 400px) {
+  .header__panier__logo div::before {
+    color: #482a05;
+    font-size: 3rem;
+  }
 }
 
 .retour-accueil {
@@ -341,6 +360,12 @@ main h1, footer h2 {
     height: 3rem;
   }
 }
+@media screen and (max-width: 400px) {
+  .retour-accueil {
+    width: 6rem;
+    height: 3rem;
+  }
+}
 .retour-accueil__arrow div::before {
   content: "";
   font-family: "Font Awesome 5";
@@ -351,6 +376,11 @@ main h1, footer h2 {
   text-rendering: auto;
   line-height: 1;
   margin-right: 0.8rem;
+}
+@media screen and (max-width: 400px) {
+  .retour-accueil__arrow div::before {
+    display: none;
+  }
 }
 
 .loader {
@@ -531,7 +561,7 @@ main h1, footer h2 {
   justify-content: space-around;
   flex-wrap: wrap;
   width: 100%;
-  border-bottom: solid #E38D02 2px;
+  border-bottom: solid #851d19 2px;
   padding-bottom: 2rem;
 }
 .products__card {
@@ -885,27 +915,31 @@ main h1, footer h2 {
 
 .panier-resume {
   width: 90%;
-  background-color: white;
+  background-color: #482a05;
+  color: white;
+  text-shadow: 2px 2px 4px black;
   max-width: 55rem;
   margin: 3rem auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: solid palevioletred;
+  border: solid #E38D02;
+  border-radius: 20px;
 }
 .panier-resume__article {
   width: 90%;
   display: flex;
   flex-wrap: wrap;
-  border-top: solid #851d19 1px;
+  border-top: solid #E38D02 1px;
 }
 .panier-resume__article p:nth-child(3) {
   font-family: "Raleway-bold";
 }
 .panier-resume__article__image {
+  align-self: center;
   width: 10rem;
   height: 10rem;
-  margin: 1rem;
+  margin-right: 1rem;
 }
 @media screen and (max-width: 769px) {
   .panier-resume__article__image {
@@ -925,12 +959,27 @@ main h1, footer h2 {
 .panier-resume__article__details p {
   font-size: 1.1rem;
 }
+@media screen and (max-width: 400px) {
+  .panier-resume__article__details {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+.panier-resume__article__details div:nth-child(2) {
+  margin-bottom: 1rem;
+}
+@media screen and (max-width: 400px) {
+  .panier-resume__article {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 .panier-resume__quantite input {
   width: 2rem;
 }
 .panier-resume__supprimer {
-  background-color: #482a05;
-  border: solid black 1px;
+  background-color: #E38D02;
+  box-shadow: 2px 2px 14px black;
   color: white;
   border-radius: 30px;
   width: 7rem;
@@ -941,8 +990,13 @@ main h1, footer h2 {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
+@media screen and (max-width: 400px) {
+  .panier-resume__supprimer {
+    margin: 0 auto;
+  }
+}
 .panier-resume__supprimer p {
-  margin: 0;
+  margin: 0 auto 0.2rem;
 }
 
 .panier-form {
@@ -987,6 +1041,12 @@ main h1, footer h2 {
   width: 10rem;
   border-radius: 30px;
   margin-left: 7rem;
+}
+
+@media screen and (max-width: 769px) {
+  #commande-resume {
+    padding: 0 1rem;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

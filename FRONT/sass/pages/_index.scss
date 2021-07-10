@@ -10,7 +10,7 @@
     justify-content: space-around;
     flex-wrap: wrap;
     width: 100%;
-    border-bottom: solid $third-color 2px;
+    border-bottom: solid $fourth-color 2px;
     padding-bottom: 2rem;
     &__card {
         @include product-cards;

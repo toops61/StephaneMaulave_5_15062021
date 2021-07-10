@@ -1,22 +1,26 @@
 .panier-resume {
     width: 90%;
-    background-color: white;
+    background-color: $fifth-color;
+    color: white;
+    text-shadow: 2px 2px 4px black;
     max-width: 55rem;
     margin: 3rem auto;
     @include flex-column;
-    border: solid palevioletred;
+    @include borderThird;
+    border-radius: 20px;
     &__article {
         width: 90%;
         display: flex;
         flex-wrap: wrap;
-        border-top: solid $fourth-color 1px;
+        border-top: solid $third-color 1px;
         p:nth-child(3) {
             font-family: 'Raleway-bold';
         }
         &__image {
+            align-self: center;
             width: 10rem;
             height: 10rem;
-            margin: 1rem;
+            margin-right: 1rem;
             @include tablette-version {
                 width: 8rem;
                 height: 8rem;
@@ -33,14 +37,25 @@
             p {
                 font-size: 1.1rem;
             }
-        }  
+            @include mobile-version {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            div:nth-child(2) {
+                margin-bottom: 1rem;
+            }
+        }
+        @include mobile-version {
+            flex-direction: column;
+            align-items: center;
+        }
     }
     &__quantite input {
         width: 2rem;
     }
     &__supprimer {
-        background-color: $fifth-color;
-        border: solid black 1px;
+        background-color: $third-color;
+        @include btn-shadow;
         color: white;
         @include borderRadius;
         width: 7rem;
@@ -48,8 +63,11 @@
         @include flexCenter;
         margin-top: 2rem;
         margin-bottom: 2rem;
+        @include mobile-version {
+            margin: 0 auto;
+        }
         p {
-            margin: 0;
+            margin: 0 auto .2rem;
         }
     }
 }

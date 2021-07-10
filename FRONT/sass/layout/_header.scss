@@ -17,6 +17,9 @@
         @include tablette-version {
             width: 50%;
         }
+        @include mobile-version {
+            width: 60%;
+        }
         div {
             margin: .5rem 1rem;
         }
@@ -39,9 +42,11 @@
         }
         @include mobile-version {
             width: 6rem;
-            height: 2rem;
-        }
-        
+            height: 6rem;
+            box-shadow: none;
+            background-color: $sixth-color;
+            border: none;
+        }   
         a {
             width: 80%;
             height: 100%;
@@ -50,10 +55,19 @@
             justify-content: space-around;
             align-items: center;
             margin: 0 auto;
+            h2 {
+                @include mobile-version {
+                    display: none;
+                }
+            }
         }
         &__logo {
             div::before {
                 @include icon($content: "\f291", $font-size: 2.2rem);
+                @include mobile-version {
+                    color: $fifth-color;
+                    font-size: 3rem;
+                }
             }
         }
     }
@@ -71,8 +85,15 @@
         width: 10rem;
         height: 3rem;
     }
+    @include mobile-version {
+        width: 6rem;
+        height: 3rem;
+    }
     &__arrow div::before {
         @include icon("\f04a", 1.5rem);
         margin-right: .8rem;
+        @include mobile-version {
+            display: none;
+        }
     }
 }
