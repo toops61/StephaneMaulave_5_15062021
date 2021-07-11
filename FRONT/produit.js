@@ -10,7 +10,7 @@ for (let i = 0; i < tableauProduits.length; i++) {
     }
 }
 
-//recuperation des donnes pour le HTML
+//affichage des éléments du HTML
 document.getElementById("product-image").innerHTML = '<img src="' + chosenTeddy.imageUrl + '"alt=ours en peluche"></img>';
 document.getElementById("product-name").textContent = chosenTeddy.name;
 document.getElementById("teddy-description").textContent = chosenTeddy.description;
@@ -42,8 +42,8 @@ function addProduct(produit) {
     } else {
         tableauProduits[idTeddy].quantite = 1;
     }
-localStorage.setItem('tableauStorage', JSON.stringify(tableauProduits));
-alert(produit + ' a été ajouté à votre panier');
+    localStorage.setItem('tableauStorage', JSON.stringify(tableauProduits));
+    alert(produit + ' a été ajouté à votre panier');
 }
 let addToCart = document.getElementById('add-cart');
 addToCart.addEventListener('click', function(){addProduct(product.textContent)});

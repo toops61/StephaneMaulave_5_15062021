@@ -1,10 +1,3 @@
-//initialisation du local storage en retournant à l'accueil
-function resetStorage() {
-    localStorage.clear();
-}
-document.getElementById('retour-accueil1').addEventListener('click', resetStorage);
-document.getElementById('retour-accueil2').addEventListener('click', resetStorage);
-
 //récupération du localstorage
 let products = JSON.parse(localStorage.getItem("products"));
 let tableauProduits = JSON.parse(localStorage.getItem("tableauStorage"));
@@ -47,13 +40,13 @@ let request = {
 
 fetch(url, request)
 .then(function(rep) {
-    console.log(rep);
     let resultat = rep.json();
     return resultat;
 })
 .then(function (value) {
     orderId = value.orderId;
     displayId();
+    localStorage.clear();
 })
 .catch(function(error) {
     console.log('erreur !' + error);

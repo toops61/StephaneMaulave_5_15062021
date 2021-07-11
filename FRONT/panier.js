@@ -97,7 +97,7 @@ let city = inputsArray[3];
 let email = inputsArray[4];
 
 let regexText = /[0-9/=;`$&"()§!@≠…∞€ø«¡¶{}“º%µ¬®†°π‡∂ﬁƒ¬‹≈©◊ß£*#ë—<>≤≥]/;
-let regexAdress = /[/=;`$&"()§!@≠…∞€ø«¡¶{}“ºµ¬%®†π‡∂ﬁƒ¬‹≈©◊ß£*#ë—<>≤≥]/;
+let regexAdress = /[/=;`$&()§!@≠…∞€ø«¡¶{}ºµ¬%®†π‡∂ﬁƒ¬‹≈©◊ß£*ë—<>≤≥]/;
 let regexMail = /^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]+([_|\.|-]­{1}[a-z0-9]+)*[\.]{1}[a-z]{2,6}$/;
  
 //regex exclu
@@ -153,7 +153,7 @@ function takeInputs() {
     contact.email = email.value;
 }
 
-//crée un tableau de booléens true/false correspondant à chaque champ
+//crée un tableau de booléens true/false correspondant à la validité ou non de chaque champ
 function capturerChamps() {
     validInputArray = [];
     for (let index = 0; index < 5; index++) {
@@ -166,7 +166,7 @@ let validButton = document.querySelector('form div#submit-btn input');
 let isTrue = (currentValue) => currentValue === true;
 function valider() {
         capturerChamps();
-        if (validInputArray.every(isTrue) && panierArray.length > 0) {
+        if (validInputArray.every(isTrue) && totalPanier > 0) {
             takeInputs();
             createArray();
             tableauProduits.push(totalPanier);
@@ -174,7 +174,7 @@ function valider() {
             localStorage.setItem('contact', JSON.stringify(contact));
             localStorage.setItem('products', JSON.stringify(totalArray));
             location.href = './pageConfirm.html';
-        } else if (panierArray.length === 0) {
+        } else if (totalPanier === 0) {
             alert('Votre panier est vide');
         } else {
             alert('Impossible, vos champs ne sont pas correctement remplis');
