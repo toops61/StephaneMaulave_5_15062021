@@ -547,11 +547,28 @@ main h1, footer h2 {
 }
 
 .main-section {
+  width: 100%;
+}
+
+.banner {
+  width: 100%;
+  height: 20rem;
+  box-shadow: 0px 0px 10px 10px #bb491c inset;
+  background: url(../images/bear.webp) fixed no-repeat;
+  background-size: 100%;
+}
+@media screen and (max-width: 769px) {
+  .banner {
+    display: none;
+  }
+}
+
+article {
   width: 90%;
   margin: 0 auto;
 }
 @media screen and (max-width: 769px) {
-  .main-section {
+  article {
     width: 100%;
   }
 }
