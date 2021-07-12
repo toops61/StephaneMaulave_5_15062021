@@ -3,7 +3,7 @@
 Projet Open Classrooms WebDev N°5 :
 
 dossier BACK : ne pas modifier, contient les éléments pour le back-end.
-Ouvrez ce dossier dans le terminal puis lancez le serveur avec la commande node server.
+Ouvrez ce dossier dans le terminal puis lancez npm install pour installer les modules nécessaires puis lancez le serveur avec la commande node server.
 
 dossier FRONT : nouveaux éléments pour la partie front-end :
 la page d'accueil se situe ici :
