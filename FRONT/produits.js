@@ -2,6 +2,8 @@
 fetch('http://localhost:3000/api/teddies')
         .then(function(res) {
             if(res.ok) {
+                const loader = document.querySelector('div.loader');
+                loader.className += " hidden";
                 const productsArray = res.json();
                 return productsArray;
             }
@@ -15,18 +17,6 @@ fetch('http://localhost:3000/api/teddies')
             console.log('Il y a eu un problème : ' + error.message);
         });
 
-//loader pendant le chargement de la page
-/* const loader = document.querySelector('div.loader');
-window.addEventListener('load', function(){
-    loader.className += " hidden";
-}) */
-
-//loader de 3,5 secondes
-const loader = document.querySelector('div.loader');
-setTimeout(function () {
-    loader.className += " hidden";
-}, 3500)
-
 setTimeout(function() {
     for (let i = 0; i < tableauProduits.length; i++) {
         let productSection = document.getElementById('productsSection');
@@ -35,7 +25,7 @@ setTimeout(function() {
         document.getElementById("teddy-name" + i).textContent = tableauProduits[i].name;
         document.getElementById("teddy-price" + i).textContent = tableauProduits[i].price*0.01 + " €";
     }
-},4000);
+},2000);
 
 //fonction update du local storage et du tableau des produits
 setTimeout(function() {
@@ -44,7 +34,7 @@ setTimeout(function() {
     } else {
         recupLocal();
     }
-}, 4000);
+}, 3000);
 
 function storeToLocal() {
     localStorage.setItem('tableauStorage', JSON.stringify(tableauProduits)); 
@@ -71,7 +61,7 @@ setTimeout(function() {
             let addToCart = document.getElementById('add-to-cart' + ind);
             addToCart.addEventListener('click', function(){addProduct(ind)});
     }
-}, 4000);
+}, 3000);
 
 //fonction pour l'ajout du produit au panier
 function addProduct(index) {

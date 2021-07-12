@@ -3,12 +3,6 @@ let products = JSON.parse(localStorage.getItem("products"));
 let tableauProduits = JSON.parse(localStorage.getItem("tableauStorage"));
 let contact = JSON.parse(localStorage.getItem("contact"));
 
-//loader de 3,5 secondes
-const loader = document.querySelector('div.loader');
-setTimeout(function () {
-    loader.className += " hidden";
-}, 3500)
-
 //affichage du nom
 document.querySelector("section h1").textContent += contact.firstName;
 //recap commande
@@ -40,6 +34,8 @@ let request = {
 
 fetch(url, request)
 .then(function(rep) {
+    const loader = document.querySelector('div.loader');
+    loader.className += " hidden";
     let resultat = rep.json();
     return resultat;
 })
