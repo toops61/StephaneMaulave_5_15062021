@@ -10,6 +10,18 @@ for (let i = 0; i < tableauProduits.length; i++) {
     }
 }
 
+//message pop-up
+let messageUser = document.getElementById('message-user');
+let close = document.getElementById('close');
+function displayMessage(message) {
+    document.getElementById('message-alert').textContent = message;
+    messageUser.classList.add('appear');
+}
+function closeMessage() {
+    messageUser.classList.remove('appear');
+}
+close.addEventListener('click', closeMessage);
+
 //affichage des éléments du HTML
 document.getElementById("product-image").innerHTML = '<img src="' + chosenTeddy.imageUrl + '"alt=ours en peluche"></img>';
 document.getElementById("product-name").textContent = chosenTeddy.name;
@@ -26,7 +38,7 @@ for (let ind = 0; ind < arrayColors.length; ind++) {
 //recuperation de la couleur choisie par l'utilisateur
 function addCouleur(index) {
     chosenTeddy.couleur = arrayColors[index];
-    alert('Vous avez sélectionné la couleur ' + arrayColors[index]);
+    displayMessage('Vous avez sélectionné la couleur ' + arrayColors[index]);
 }
 for (let i = 0; i < arrayColors.length; i++) {
     let couleurEl = document.getElementById('couleurTeddy' + i);
@@ -43,7 +55,7 @@ function addProduct(produit) {
         tableauProduits[idTeddy].quantite = 1;
     }
     localStorage.setItem('tableauStorage', JSON.stringify(tableauProduits));
-    alert(produit + ' a été ajouté à votre panier');
+    displayMessage(produit + ' a été ajouté à votre panier');
 }
 let addToCart = document.getElementById('add-cart');
 addToCart.addEventListener('click', function(){addProduct(product.textContent)});

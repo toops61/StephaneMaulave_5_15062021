@@ -27,6 +27,17 @@ if (totalPanier === 0) {
     panierSection.innerHTML += '<p tabindex="0" id="total-price">total : ' + totalPanier + ' €</p>';
 }
 
+//message pop-up
+let messageUser = document.getElementById('message-user');
+let close = document.getElementById('close');
+function displayMessage(message) {
+    document.getElementById('message-alert').textContent = message;
+    messageUser.classList.add('appear');
+}
+function closeMessage() {
+    messageUser.classList.remove('appear');
+}
+close.addEventListener('click', closeMessage);
 
 //recalcule les totaux si la quantite change
 function updatePrice() {
@@ -36,11 +47,11 @@ function updatePrice() {
         if (quantite > 99) {
             quantite = 1;
             document.getElementById('quantite-produit' + index).value = 1;
-            alert('Vous ne pouvez sélectionner plus de 99 ours');
+            displayMessage('Vous ne pouvez sélectionner plus de 99 ours');
         } else if (quantite < 0) {
             quantite = 1;
             document.getElementById('quantite-produit' + index).value = 1;
-            alert('Vous ne pouvez sélectionner moins d\'un ours, mais vous pouvez le supprimer');
+            displayMessage('Vous ne pouvez sélectionner moins d\'un ours, mais vous pouvez le supprimer');
         }
         let prix = document.getElementById('produit-price' + index);
         let price = panierArray[index].price * .01;
@@ -175,9 +186,9 @@ function valider() {
             localStorage.setItem('products', JSON.stringify(totalArray));
             location.href = './pageConfirm.html';
         } else if (totalPanier === 0) {
-            alert('Votre panier est vide');
+            displayMessage('Votre panier est vide');
         } else {
-            alert('Impossible, vos champs ne sont pas correctement remplis');
+            displayMessage('Impossible, vos champs ne sont pas correctement remplis');
         }
 }
 validButton.addEventListener('click', valider);

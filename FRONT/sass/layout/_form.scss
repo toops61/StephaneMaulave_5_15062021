@@ -1,3 +1,43 @@
+.panier-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: solid black;
+    width: 60%;
+    max-width: 32rem;
+    margin: 3rem auto;
+    padding-bottom: 2rem;
+    @include tablette-version {
+        width: 80%;
+    }
+    @include mobile-version {
+        width: 100%;
+    }
+    background-color: white;
+    div {
+        width: 80%;
+        margin-top: 1rem;
+        margin-left: 2rem;
+        display: flex;
+        &:nth-child(6) {
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        label {
+            width: 7rem;
+        }
+        input {
+            display: block;
+            width: 80%;
+            &:nth-child(1) {
+                width: 10rem;
+                @include borderRadius;
+                margin-left: 7rem;
+            }
+        }
+    }
+}
+
 .invalid {
     border: solid red;
 }

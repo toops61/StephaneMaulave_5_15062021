@@ -169,3 +169,7 @@
     white-space: nowrap;
     z-index: 10;
 }
+
+@mixin textShadow {
+    text-shadow: 2px 2px 4px black;
+}

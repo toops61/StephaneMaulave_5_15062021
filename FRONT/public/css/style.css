@@ -155,6 +155,40 @@ main h1, footer h2 {
   text-shadow: 2px 2px 4px black;
 }
 
+.message-user {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 120vh;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: rgba(227, 141, 2, 0.7);
+}
+.message-user div:nth-child(1) {
+  background-color: #851d19;
+  color: white;
+  text-shadow: 2px 2px 4px black;
+  margin: 10% auto;
+  width: 50%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 30px;
+  border: solid black;
+}
+
+.appear {
+  display: block;
+}
+
+#message-alert {
+  text-align: center;
+  margin: 1rem;
+}
+
 .footer-container {
   display: flex;
   flex-direction: column;
@@ -536,6 +570,50 @@ main h1, footer h2 {
 .color-nav ul li:hover {
   color: #ECECEC;
   background-color: #E38D02;
+}
+
+.panier-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: solid black;
+  width: 60%;
+  max-width: 32rem;
+  margin: 3rem auto;
+  padding-bottom: 2rem;
+  background-color: white;
+}
+@media screen and (max-width: 769px) {
+  .panier-form {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .panier-form {
+    width: 100%;
+  }
+}
+.panier-form div {
+  width: 80%;
+  margin-top: 1rem;
+  margin-left: 2rem;
+  display: flex;
+}
+.panier-form div:nth-child(6) {
+  justify-content: center;
+  margin-top: 2rem;
+}
+.panier-form div label {
+  width: 7rem;
+}
+.panier-form div input {
+  display: block;
+  width: 80%;
+}
+.panier-form div input:nth-child(1) {
+  width: 10rem;
+  border-radius: 30px;
+  margin-left: 7rem;
 }
 
 .invalid {
@@ -1010,7 +1088,7 @@ article {
 .panier-resume__quantite input {
   width: 2rem;
 }
-.panier-resume__supprimer {
+.panier-resume__supprimer, .close {
   background-color: #E38D02;
   box-shadow: 2px 2px 14px black;
   color: white;
@@ -1024,56 +1102,12 @@ article {
   margin-bottom: 2rem;
 }
 @media screen and (max-width: 400px) {
-  .panier-resume__supprimer {
+  .panier-resume__supprimer, .close {
     margin: 0 auto;
   }
 }
-.panier-resume__supprimer p {
+.panier-resume__supprimer p, .close p {
   margin: 0 auto 0.2rem;
-}
-
-.panier-form {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  border: solid black;
-  width: 60%;
-  max-width: 32rem;
-  margin: 3rem auto;
-  padding-bottom: 2rem;
-  background-color: white;
-}
-@media screen and (max-width: 769px) {
-  .panier-form {
-    width: 80%;
-  }
-}
-@media screen and (max-width: 400px) {
-  .panier-form {
-    width: 100%;
-  }
-}
-.panier-form div {
-  width: 80%;
-  margin-top: 1rem;
-  margin-left: 2rem;
-  display: flex;
-}
-.panier-form div:nth-child(6) {
-  justify-content: center;
-  margin-top: 2rem;
-}
-.panier-form div label {
-  width: 7rem;
-}
-.panier-form div input {
-  display: block;
-  width: 80%;
-}
-.panier-form div input:nth-child(1) {
-  width: 10rem;
-  border-radius: 30px;
-  margin-left: 7rem;
 }
 
 @media screen and (max-width: 769px) {

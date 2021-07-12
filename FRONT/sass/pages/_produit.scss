@@ -2,7 +2,7 @@
     @include flex-column;
     &__card {
         color: white;
-        text-shadow: 2px 2px 4px black;
+        @include textShadow;
         position: relative;
         background-color: $fifth-color;
         @include flex-column;
