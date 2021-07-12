@@ -53,14 +53,6 @@ function recupLocal() {
     tableauProduits = JSON.parse(localStorage.getItem('tableauStorage'));
 }
 
-//evenement click pour ajouter l'élément au panier
-setTimeout(function() {
-    for (let ind = 0; ind < tableauProduits.length; ind++) {
-            let addToCart = document.getElementById('add-to-cart' + ind);
-            addToCart.addEventListener('click', function(){addProduct(ind)});
-    }
-}, 4000);
-
 //message pop-up
 let messageUser = document.getElementById('message-user');
 let close = document.getElementById('close');
@@ -73,6 +65,14 @@ function closeMessage() {
 }
 close.addEventListener('click', closeMessage);
 
+//evenement click pour ajouter l'élément au panier
+setTimeout(function() {
+    for (let ind = 0; ind < tableauProduits.length; ind++) {
+            let addToCart = document.getElementById('add-to-cart' + ind);
+            addToCart.addEventListener('click', function(){addProduct(ind)});
+    }
+}, 4000);
+
 //fonction pour l'ajout du produit au panier
 function addProduct(index) {
     if (tableauProduits[index].quantite >= 1) {
@@ -81,5 +81,8 @@ function addProduct(index) {
         tableauProduits[index].quantite = 1;
     }
     storeToLocal();
+    if (tableauProduits[index].name.indexOf(' ') > -1) {
+        displayMessage(tableauProduits[index].name + ' ont été ajoutés à votre panier');
+    } else
     displayMessage(tableauProduits[index].name + ' a été ajouté à votre panier');
 }
