@@ -435,7 +435,7 @@ main h1, footer h2 {
   right: 0;
   width: 100%;
   height: 100%;
-  background: white;
+  background-color: #bb491c;
   display: flex;
   justify-content: center;
   align-items: center;
