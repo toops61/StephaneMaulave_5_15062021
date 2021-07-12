@@ -166,18 +166,27 @@ main h1, footer h2 {
   background-color: rgba(227, 141, 2, 0.7);
 }
 .message-user div:nth-child(1) {
-  background-color: #851d19;
   color: white;
   text-shadow: 2px 2px 4px black;
+  background-color: #851d19;
   margin: 10% auto;
   width: 50%;
-  height: 40%;
+  max-width: 32rem;
+  height: 15rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
   border-radius: 30px;
   border: solid black;
+}
+@media screen and (max-width: 400px) {
+  .message-user div:nth-child(1) {
+    width: 90%;
+  }
+}
+.message-user p {
+  font-size: 1.6rem;
 }
 
 .appear {
@@ -684,8 +693,8 @@ article {
 }
 @media screen and (max-width: 400px) {
   .products__card {
-    width: 16rem;
-    height: 10rem;
+    width: 90%;
+    height: 12rem;
   }
   .products__card h2, .products__card p {
     text-shadow: none;
@@ -1056,6 +1065,11 @@ article {
   .panier-resume__article__image {
     width: 8rem;
     height: 8rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  .panier-resume__article__image {
+    margin-top: 1rem;
   }
 }
 .panier-resume__article__image img {

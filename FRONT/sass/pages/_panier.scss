@@ -25,6 +25,9 @@
                 width: 8rem;
                 height: 8rem;
             }
+            @include mobile-version {
+                margin-top: 1rem;
+            }
             img {
                 width: 100%;
                 height: 100%;

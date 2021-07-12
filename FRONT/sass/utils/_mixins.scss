@@ -142,8 +142,8 @@
         margin: 1rem auto;
     }
     @media screen and (max-width:$breakpoint-mobile) {
-        width: 16rem;
-        height: 10rem;
+        width: 90%;
+        height: 12rem;
         h2, p {
             text-shadow: none;
             font-family: 'raleway bold';
