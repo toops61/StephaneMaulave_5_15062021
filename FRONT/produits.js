@@ -73,6 +73,7 @@ function addProduct(index) {
     storeToLocal();
     if (tableauProduits[index].name.indexOf(' ') > -1) {
         displayMessage(tableauProduits[index].name + ' ont été ajoutés à votre panier');
-    } else
-    displayMessage(tableauProduits[index].name + ' a été ajouté à votre panier');
+    } else {
+        displayMessage(tableauProduits[index].name + ' a été ajouté à votre panier');
+    }
 }
