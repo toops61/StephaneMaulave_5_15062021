@@ -2,14 +2,21 @@
 fetch('http://localhost:3000/api/teddies')
         .then(function(res) {
             if(res.ok) {
-                const loader = document.querySelector('div.loader');
-                loader.className += " hidden";
                 const productsArray = res.json();
                 return productsArray;
             }
         })
         .then(function(value) {
             tableauProduits = value;
+            createCards();
+            addToCart();
+            const loader = document.querySelector('div.loader');
+            loader.className += " hidden";
+            if (localStorage.length === 0) {
+                storeToLocal();
+            } else {
+                recupLocal();
+            }
         })
         .catch(function(error) {
             document.querySelector('main article h1').textContent = 'désolé, il y a eu un problème lors du chargement';
@@ -17,7 +24,7 @@ fetch('http://localhost:3000/api/teddies')
             console.log('Il y a eu un problème : ' + error.message);
         });
 
-setTimeout(function() {
+function createCards() {
     for (let i = 0; i < tableauProduits.length; i++) {
         let productSection = document.getElementById('productsSection');
         productSection.innerHTML += '<div class="products__card"><div class="products__card__image" tabindex="0" id="teddy-image' + i + '"></div><div class="products__card__description"><h2 tabindex="0" id="teddy-name' + i + '"></h2><a href="./produit.html?id=' + tableauProduits[i]._id + '" id="lien-product' + i + '"><div class="plus"><div></div></div></a><div class="cart-prix"><div class="add-cartIndex" tabindex="0"><div class=add-cartIndex__icon id="add-to-cart' + i + '"></div></div><p tabindex="0" id="teddy-price' + i + '"></p></div></div></div>';
@@ -25,17 +32,9 @@ setTimeout(function() {
         document.getElementById("teddy-name" + i).textContent = tableauProduits[i].name;
         document.getElementById("teddy-price" + i).textContent = tableauProduits[i].price*0.01 + " €";
     }
-},2000);
+};
 
 //fonction update du local storage et du tableau des produits
-setTimeout(function() {
-    if (localStorage.length === 0) {
-        storeToLocal();
-    } else {
-        recupLocal();
-    }
-}, 3000);
-
 function storeToLocal() {
     localStorage.setItem('tableauStorage', JSON.stringify(tableauProduits)); 
 }
@@ -56,12 +55,12 @@ function closeMessage() {
 close.addEventListener('click', closeMessage);
 
 //evenement click pour ajouter l'élément au panier
-setTimeout(function() {
+function addToCart() {
     for (let ind = 0; ind < tableauProduits.length; ind++) {
             let addToCart = document.getElementById('add-to-cart' + ind);
             addToCart.addEventListener('click', function(){addProduct(ind)});
     }
-}, 3000);
+}
 
 //fonction pour l'ajout du produit au panier
 function addProduct(index) {
