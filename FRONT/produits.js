@@ -21,6 +21,8 @@ fetch('http://localhost:3000/api/teddies')
         .catch(function(error) {
             document.querySelector('main article h1').textContent = 'désolé, il y a eu un problème lors du chargement';
             document.querySelector('footer').style.display = 'none';
+            const loader = document.querySelector('div.loader');
+            loader.className += " hidden";
             console.log('Il y a eu un problème : ' + error.message);
         });
 
