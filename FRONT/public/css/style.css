@@ -443,7 +443,7 @@ main h1, footer h2 {
 .loader__grandOurs {
   width: 16rem;
   height: 20rem;
-  animation: fadeIn 2s ease-in-out 2 forwards;
+  animation: fadeIn 2s ease-in-out 3 forwards;
 }
 @media screen and (max-width: 769px) {
   .loader__grandOurs {
@@ -466,7 +466,7 @@ main h1, footer h2 {
   position: absolute;
   width: 2rem;
   height: 3rem;
-  animation: animation-petits 2s ease 2 forwards;
+  animation: animation-petits 2s ease 3 forwards;
 }
 @media screen and (max-width: 400px) {
   .loader__petitsOurs {
