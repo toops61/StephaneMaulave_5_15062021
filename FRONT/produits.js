@@ -12,7 +12,8 @@ fetch('http://localhost:3000/api/teddies')
             addToCart();
             const loader = document.querySelector('div.loader');
             loader.className += " hidden";
-            if (localStorage.length === 0) {
+            if (localStorage.getItem('tableauStorage') === null) {
+                localStorage.clear();
                 storeToLocal();
             } else {
                 recupLocal();
